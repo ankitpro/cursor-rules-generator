@@ -377,8 +377,17 @@ project-root/
     │   ├── testing.md                    # Testing requirements
     │   ├── security.md                   # Security best practices
     │   └── performance.md                # Performance optimization (optional)
-    ├── prompts/                          # System prompts (create this folder)
-    │   └── system-prompts.md             # Role-based system
+    ├── prompts/                          # Modular role prompts (create this folder)
+    │   ├── README.md                     # Role announcement guide
+    │   ├── documentation-writer.md
+    │   ├── frontend-developer.md
+    │   ├── backend-developer.md
+    │   ├── software-architect.md
+    │   ├── code-reviewer.md
+    │   ├── qa-engineer.md
+    │   ├── security-analyst.md
+    │   ├── performance-engineer.md
+    │   └── database-administrator.md
     └── quick-reference.md                # Commands, paths, patterns
 ```
 
@@ -427,7 +436,7 @@ project-root/
 - 🧪 QA Engineer - Testing
 - [Add other relevant roles based on project]
 
-**📖 Full role documentation:** `.cursor/prompts/system-prompts.md`
+**📖 Full role documentation:** `.cursor/prompts/README.md` and individual role files
 
 ## 📚 Detailed Guidelines
 
@@ -529,17 +538,27 @@ For comprehensive rules, see:
 **Length:** 150-250 lines
 **Include if:** Performance is critical or framework-specific optimizations exist
 
-#### 6.8 `.cursor/prompts/system-prompts.md`
+#### 6.8 `.cursor/prompts/` - Modular Role Files
 
-**Content:**
-- Full role-based system documentation
-- Role selection guide
-- Multi-role task handling
-- Role announcement examples
-- Role-specific standards
+**Generate individual files for each role** - This enables easy customization:
 
-**Length:** 300-500 lines
-**ALWAYS INCLUDE** - This is the core of the system
+- `README.md` - Role announcement requirements and selection guide
+- `documentation-writer.md` - Technical writing and documentation role
+- `frontend-developer.md` - Frontend development role
+- `backend-developer.md` - Backend development role
+- `software-architect.md` - Architecture and design role
+- `code-reviewer.md` - Code review and quality role
+- `qa-engineer.md` - Testing and quality assurance role
+- `security-analyst.md` - Security review and best practices role
+- `performance-engineer.md` - Performance optimization role
+- `database-administrator.md` - Database operations role
+
+**Project-specific roles (optional):**
+- `monorepo-manager.md` - If monorepo detected
+- `build-engineer.md` - If complex build tooling detected
+
+**Length:** Each file 100-200 lines
+**ALWAYS INCLUDE** - This is the core of the role-based system
 
 #### 6.9 `.cursor/quick-reference.md`
 
@@ -1493,14 +1512,14 @@ Before generating `.cursorrules`, ensure you have:
 - [ ] Generated `.cursor/rules/testing.md`
 - [ ] Generated `.cursor/rules/security.md`
 - [ ] Generated `.cursor/rules/performance.md` (if applicable)
-- [ ] Generated `.cursor/prompts/system-prompts.md` (REQUIRED)
+- [ ] Generated `.cursor/prompts/README.md` and individual role files (REQUIRED)
 - [ ] Generated `.cursor/quick-reference.md`
 
 **✅ Content Quality:**
 - [ ] Main `.cursorrules` references all detailed files
 - [ ] Each file focuses on one topic (no overlap)
 - [ ] All based on actual detected technologies and patterns
-- [ ] Role-based system included in both main file and system-prompts.md
+- [ ] Role-based system included in both main file and prompts directory
 - [ ] No placeholder text in any file
 - [ ] No FinOps-specific references (unless analyzing FinOps)
 - [ ] All examples use project's actual tech stack
@@ -1669,8 +1688,17 @@ your-project/
     │   ├── testing.md              # ✅ [A] lines
     │   ├── security.md             # ✅ [B] lines
     │   └── performance.md          # ✅ [C] lines [if included]
-    ├── prompts/
-    │   └── system-prompts.md       # ✅ [D] lines
+    ├── prompts/                    # ✅ Modular role files
+    │   ├── README.md
+    │   ├── documentation-writer.md
+    │   ├── frontend-developer.md
+    │   ├── backend-developer.md
+    │   ├── software-architect.md
+    │   ├── code-reviewer.md
+    │   ├── qa-engineer.md
+    │   ├── security-analyst.md
+    │   ├── performance-engineer.md
+    │   └── database-administrator.md
     └── quick-reference.md          # ✅ [E] lines
 
 Total: [X+Y+Z+A+B+C+D+E] lines across [#] files

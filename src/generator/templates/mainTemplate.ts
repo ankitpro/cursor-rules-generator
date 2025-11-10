@@ -43,7 +43,7 @@ ${analysis.structure.isMonorepo ? "- **Monorepo:** Yes" : ""}
 - 🧪 QA Engineer - Testing
 - 🔒 Security Analyst - Security review
 
-**📖 Full role documentation:** \`.cursor/prompts/system-prompts.md\`
+**📖 Full role documentation:** \`.cursor/prompts/README.md\` and individual role files
 
 ## 📚 Detailed Guidelines
 

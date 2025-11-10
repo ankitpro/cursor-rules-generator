@@ -92,8 +92,17 @@ your-project/
     │   ├── testing.md
     │   ├── security.md
     │   └── performance.md
-    ├── prompts/
-    │   └── system-prompts.md # ✅ Role system
+    ├── prompts/              # ✅ Modular role system
+    │   ├── README.md
+    │   ├── documentation-writer.md
+    │   ├── frontend-developer.md
+    │   ├── backend-developer.md
+    │   ├── software-architect.md
+    │   ├── code-reviewer.md
+    │   ├── qa-engineer.md
+    │   ├── security-analyst.md
+    │   ├── performance-engineer.md
+    │   └── database-administrator.md
     └── quick-reference.md    # ✅ Commands
 ```
 
@@ -152,7 +161,7 @@ After completion, verify:
 - [ ] `.cursorrules` file exists at project root
 - [ ] `.cursor/` directory created
 - [ ] `.cursor/rules/` contains 5-6 markdown files
-- [ ] `.cursor/prompts/system-prompts.md` exists
+- [ ] `.cursor/prompts/README.md` and individual role files exist
 - [ ] `.cursor/quick-reference.md` exists
 - [ ] Cursor announces role when you ask it to code
 - [ ] All files committed to git

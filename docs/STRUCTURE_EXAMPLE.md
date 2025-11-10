@@ -51,7 +51,16 @@ your-project/
     │       └── Monitoring
     │
     ├── prompts/                                 # 📁 AI system prompts
-    │   └── system-prompts.md                    # 📄 300-500 lines
+    │   ├── README.md                             # 📄 Role announcement guide
+    │   ├── documentation-writer.md
+    │   ├── frontend-developer.md
+    │   ├── backend-developer.md
+    │   ├── software-architect.md
+    │   ├── code-reviewer.md
+    │   ├── qa-engineer.md
+    │   ├── security-analyst.md
+    │   ├── performance-engineer.md
+    │   └── database-administrator.md
     │       ├── Full role-based system
     │       ├── Role selection guide
     │       ├── Role announcement examples

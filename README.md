@@ -42,8 +42,17 @@ your-project/
     │   ├── testing.md
     │   ├── security.md
     │   └── performance.md
-    ├── prompts/
-    │   └── system-prompts.md # Role-based system
+    ├── prompts/              # Modular role-based system
+    │   ├── README.md         # Role announcement guide
+    │   ├── documentation-writer.md
+    │   ├── frontend-developer.md
+    │   ├── backend-developer.md
+    │   ├── software-architect.md
+    │   ├── code-reviewer.md
+    │   ├── qa-engineer.md
+    │   ├── security-analyst.md
+    │   ├── performance-engineer.md
+    │   └── database-administrator.md
     └── quick-reference.md    # Commands & patterns
 ```
 
@@ -183,7 +192,7 @@ C) Hybrid approach (choose per topic)
 Based on your choice, Cursor creates:
 - Main `.cursorrules` with quick context
 - `.cursor/rules/` with detailed topic files
-- `.cursor/prompts/` with role-based system
+- `.cursor/prompts/` with individual role files (each role has its own file for easy customization!)
 - `.cursor/quick-reference.md` with commands
 
 ---

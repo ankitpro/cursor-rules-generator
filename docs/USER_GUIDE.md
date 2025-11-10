@@ -42,8 +42,17 @@ your-project/
     │   ├── testing.md
     │   ├── security.md
     │   └── performance.md
-    ├── prompts/
-    │   └── system-prompts.md # Role-based system
+    ├── prompts/              # Modular role-based system
+    │   ├── README.md         # Role announcement guide
+    │   ├── documentation-writer.md
+    │   ├── frontend-developer.md
+    │   ├── backend-developer.md
+    │   ├── software-architect.md
+    │   ├── code-reviewer.md
+    │   ├── qa-engineer.md
+    │   ├── security-analyst.md
+    │   ├── performance-engineer.md
+    │   └── database-administrator.md
     └── quick-reference.md    # Commands & patterns
 ```
 

@@ -188,7 +188,7 @@ Here's a complete example of using the MCP server:
 4. Cursor: [Uses generate_cursor_rules tool with approach="best_practices"]
    - Generates: .cursorrules
    - Generates: .cursor/rules/*.md
-   - Generates: .cursor/prompts/system-prompts.md
+   - Generates: .cursor/prompts/README.md and individual role files
    - Reports: "Successfully generated 8 files"
 
 5. Me: "Great! Commit these files"
