@@ -226,6 +226,14 @@ rm -rf .cursorrules .cursor/
 
 ---
 
+## 👨‍💻 Author
+
+**Ankit Agarwal**
+- 📧 Email: [ankitagarwalpro@gmail.com](mailto:ankitagarwalpro@gmail.com)
+- 🐙 GitHub: [@ankitpro](https://github.com/ankitpro)
+
+---
+
 **That's it! You now have production-quality cursor rules! 🎉**
 
 Start coding and watch Cursor follow your project's patterns automatically.

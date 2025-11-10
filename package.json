@@ -24,7 +24,7 @@
     "cursor-ide",
     "code-analysis"
   ],
-  "author": "Open Source Contributors",
+  "author": "Ankit Agarwal <ankitagarwalpro@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",

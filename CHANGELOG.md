@@ -155,6 +155,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Contributors
 
+- **Ankit Agarwal** - Initial work and MCP implementation
 - Open source contributors welcome!
 
 ## Acknowledgments

@@ -477,5 +477,13 @@ Your contributions help make this project better for everyone. Whether it's:
 
 ---
 
+## 👨‍💻 Project Maintainer
+
+**Ankit Agarwal**
+- 📧 Email: [ankitagarwalpro@gmail.com](mailto:ankitagarwalpro@gmail.com)
+- 🐙 GitHub: [@ankitpro](https://github.com/ankitpro)
+
+---
+
 **Version:** 1.0.0
 

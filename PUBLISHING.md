@@ -157,3 +157,11 @@ jobs:
 
 Add your NPM token to GitHub repository secrets as `NPM_TOKEN`.
 
+---
+
+## 👨‍💻 Author
+
+**Ankit Agarwal**
+- 📧 Email: [ankitagarwalpro@gmail.com](mailto:ankitagarwalpro@gmail.com)
+- 🐙 GitHub: [@ankitpro](https://github.com/ankitpro)
+

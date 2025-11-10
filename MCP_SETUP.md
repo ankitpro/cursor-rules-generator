@@ -300,5 +300,13 @@ If tools aren't responding:
 
 ---
 
+## 👨‍💻 Author
+
+**Ankit Agarwal**
+- 📧 Email: [ankitagarwalpro@gmail.com](mailto:ankitagarwalpro@gmail.com)
+- 🐙 GitHub: [@ankitpro](https://github.com/ankitpro)
+
+---
+
 **Happy cursor rules generation!** 🎉
 

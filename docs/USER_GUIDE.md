@@ -256,8 +256,10 @@ Contributions are welcome and encouraged! Whether you're fixing bugs, adding fea
 
 ## 👨‍💻 Author
 
-Open source project built for the developer community.
+**Ankit Agarwal**
 
+- 📧 Email: [ankitagarwalpro@gmail.com](mailto:ankitagarwalpro@gmail.com)
+- 🐙 GitHub: [@ankitpro](https://github.com/ankitpro)
 - 💡 Mission: Making Cursor development more efficient for everyone
 
 _"Born from real-world needs, built for real-world developers."_
