@@ -1,0 +1,17 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schema/mcp-config.json",
+  "mcpServers": {
+    "cursor-rules-generator": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "cursor-rules-generator-mcp@latest"
+      ],
+      "env": {
+        "TEMPLATE_REPO_URL": "https://github.com/ankitpro/cursor-rules-generator.git"
+      },
+      "description": "Generates comprehensive .cursorrules for any project with automated analysis"
+    }
+  }
+}
+

@@ -1,0 +1,43 @@
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+.env
+.env.local
+.env.*.local
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# TypeScript
+*.tsbuildinfo
+
+# MCP Server cache
+.cursor-rules-generator-cache/
+

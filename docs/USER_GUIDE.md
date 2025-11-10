@@ -1,0 +1,309 @@
+# Cursor Rules Generator
+
+**Automatically generate production-quality, modular `.cursorrules` for any project**
+
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](CHANGELOG.md)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+> _"Empowering developers, one cursor rule at a time"_
+
+---
+
+## 🎯 What is This?
+
+**Cursor Rules Generator** is an intelligent system that automatically analyzes your codebase and generates comprehensive, organized cursor rules with zero manual input.
+
+Instead of writing rules manually or using generic templates, this system:
+- 🔍 **Scans your repository** - Dependencies, structure, code patterns, git workflow, environment variables
+- 📊 **Analyzes everything** - Compares your patterns against best practices
+- 🎯 **Gives you options** - Use current patterns, adopt best practices, or hybrid
+- 📁 **Generates modular structure** - Organized files instead of one massive document
+- 🎭 **Includes role-based system** - Cursor automatically adopts appropriate expert roles
+
+---
+
+## ✨ Key Features
+
+### 🤖 Fully Automated
+- **One simple prompt** - No manual project description needed
+- **Intelligent scanning** - Detects all technologies, frameworks, patterns
+- **Zero placeholders** - All values from actual codebase analysis
+
+### 📁 Modular Structure
+Generates organized structure instead of single massive file:
+```
+your-project/
+├── .cursorrules              # Main entry point (~150 lines)
+└── .cursor/
+    ├── rules/                # Topic-specific detailed rules
+    │   ├── architecture.md
+    │   ├── code-style.md
+    │   ├── git-workflow.md
+    │   ├── testing.md
+    │   ├── security.md
+    │   └── performance.md
+    ├── prompts/
+    │   └── system-prompts.md # Role-based system
+    └── quick-reference.md    # Commands & patterns
+```
+
+### 🌍 Universal Support
+- **Languages:** JavaScript/TypeScript, Python, Go, Rust, Ruby, Java, PHP, Dart, Elixir, Swift
+- **Frameworks:** React, Vue, Angular, Next.js, FastAPI, Django, Flask, Express, and more
+- **Project Types:** Web apps, APIs, mobile apps, CLI tools, libraries, microservices
+
+### 🎭 Role-Based System
+Cursor automatically announces and adopts appropriate expert roles:
+- 📝 Documentation Writer
+- ⚛️ Frontend Developer
+- 🔧 Backend Developer
+- 🏗️ Software Architect
+- 🧪 QA Engineer
+- 🔒 Security Analyst
+- And more...
+
+---
+
+## 🚀 Quick Start
+
+### 1. Copy to Your Project
+
+```bash
+# Clone or download this repository
+git clone https://github.com/ankitpro/cursor-rules-generator.git
+
+# Copy to your project
+cp -r cursor-rules-generator /path/to/your/project/
+cd /path/to/your/project
+```
+
+### 2. Open in Cursor and Generate
+
+```
+@cursor-rules-generator
+
+Scan my repository and generate comprehensive .cursorrules based on my actual codebase.
+```
+
+### 3. Review and Commit
+
+```bash
+# Review generated structure
+ls -la .cursorrules .cursor/
+
+# Commit everything
+git add .cursorrules .cursor/
+git commit -m "chore: Add cursor rules"
+
+# Remove or archive generator folder
+rm -rf cursor-rules-generator
+```
+
+---
+
+## 📚 Documentation
+
+| File | Purpose |
+|------|---------|
+| **[README.md](README.md)** | User guide - Start here! |
+| **[CURSOR_RULES_GENERATOR.md](CURSOR_RULES_GENERATOR.md)** | Master template (for Cursor AI) |
+| **[STRUCTURE_EXAMPLE.md](STRUCTURE_EXAMPLE.md)** | Visual example of generated structure |
+| **[VERSION_2.0_SUMMARY.md](VERSION_2.0_SUMMARY.md)** | v2.0 features and changelog |
+
+---
+
+## 💡 How It Works
+
+### Step 1: Automated Analysis
+
+Cursor scans your repository:
+- 📦 **Dependencies** - package.json, requirements.txt, go.mod, etc.
+- 🏗️ **Structure** - Monorepo, frontend/backend split, folder organization
+- 📝 **Code Patterns** - Naming conventions, error handling, function patterns
+- 🌳 **Git Workflow** - Branches, commits, versioning
+- ⚙️ **Environment** - .env files, configuration
+- 🧪 **Testing** - Framework, patterns, coverage
+
+### Step 2: Analysis Report
+
+Cursor generates comprehensive report:
+```
+🔍 Repository Analysis Complete
+
+📦 Detected Technologies:
+- Frontend: React 18.2.0 with TypeScript
+- Backend: Node.js 20.x with Express 4.x
+- Database: PostgreSQL
+- Testing: Jest + React Testing Library
+
+📝 Code Patterns Found:
+✅ Consistent camelCase for functions
+⚠️ Mixed error handling (suggest standardization)
+❌ No JSDoc comments found
+
+💡 Recommendations:
+1. Add JSDoc to public APIs
+2. Standardize error handling
+3. Adopt conventional commits
+
+🎯 Choose:
+A) Use current patterns (as-is documentation)
+B) Apply best practices (with improvements)
+C) Hybrid approach (choose per topic)
+```
+
+### Step 3: Modular Generation
+
+Based on your choice, Cursor creates:
+- Main `.cursorrules` with quick context
+- `.cursor/rules/` with detailed topic files
+- `.cursor/prompts/` with role-based system
+- `.cursor/quick-reference.md` with commands
+
+---
+
+## 🎯 Use Cases
+
+### For Individual Developers
+- 🚀 **New Projects** - Set up quality standards from day one
+- 📚 **Existing Projects** - Document actual patterns and conventions
+- 🔄 **Multiple Projects** - Maintain consistency across repos
+
+### For Teams
+- 👥 **Onboarding** - New members learn standards progressively
+- 📊 **Code Reviews** - Standardized patterns for consistent reviews
+- 🔄 **Collaboration** - Share and sync coding standards
+
+### For Organizations
+- 🏢 **Multi-team Projects** - Ensure consistency across teams
+- 📈 **Quality Standards** - Enforce best practices automatically
+- 🔧 **Maintenance** - Easy updates to standards over time
+
+---
+
+## 🌟 Examples
+
+### React + Node.js Full-Stack
+Automatically detects and documents:
+- React hooks patterns
+- Material-UI component usage
+- Express service layer
+- Jest + React Testing Library
+- PostgreSQL parameterized queries
+
+### Python FastAPI Backend
+Automatically detects and documents:
+- Async/await patterns
+- Type hints usage
+- Pydantic models
+- pytest patterns
+- SQLAlchemy queries
+
+### Go Microservices
+Automatically detects and documents:
+- Package organization
+- Error handling patterns
+- Testing with table-driven tests
+- Docker deployment
+- gRPC or REST API design
+
+---
+
+## 🎓 Learning Path
+
+### New to Cursor Rules?
+1. Read [README.md](README.md) - Understand the system
+2. Try in a test project first
+3. Review generated files
+4. Explore [STRUCTURE_EXAMPLE.md](STRUCTURE_EXAMPLE.md)
+5. Customize for your needs
+
+### Migration from v1.0?
+1. Review [VERSION_2.0_SUMMARY.md](VERSION_2.0_SUMMARY.md)
+2. Regenerate with v2.0 for modular structure
+3. Migrate custom rules to appropriate files
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome and encouraged! Whether you're fixing bugs, adding features, or improving documentation, your input is valued.
+
+**📚 See [CONTRIBUTING.md](CONTRIBUTING.md) for complete guidelines**
+
+### Quick Start for Contributors
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Make your changes
+4. Test thoroughly
+5. Commit: `git commit -m "feat: Your feature description"`
+6. Push and create a Pull Request
+
+### Areas for Contribution
+
+- [ ] 🌍 Add support for more languages/frameworks
+- [ ] 📐 Create rule templates for common project types
+- [ ] 🧪 Add comprehensive tests
+- [ ] 🔧 Add CI/CD integration checks
+- [ ] 📊 Build rule validation tool
+- [ ] 🌐 Create community rule sharing platform
+- [ ] 📝 Improve documentation and examples
+
+**All skill levels welcome!** See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+---
+
+## 👨‍💻 Author
+
+Open source project built for the developer community.
+
+- 💡 Mission: Making Cursor development more efficient for everyone
+
+_"Born from real-world needs, built for real-world developers."_
+
+---
+
+## 📄 License
+
+MIT License - See [LICENSE](LICENSE) file for details
+
+---
+
+## 🙏 Acknowledgments
+
+- Inspired by the Cursor community
+- Based on production experience and best practices from real-world usage
+- Built for developers, by developers
+
+---
+
+## 📞 Support
+
+- **Issues:** [GitHub Issues](https://github.com/ankitpro/cursor-rules-generator/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/ankitpro/cursor-rules-generator/discussions)
+- **Documentation:** Comprehensive guides in this repository
+- **Contributing:** See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+---
+
+## 🚀 Get Started Now
+
+```bash
+# Clone this repository
+git clone https://github.com/ankitpro/cursor-rules-generator.git
+
+# Copy to your project
+cp -r cursor-rules-generator /path/to/your/project/
+
+# Open in Cursor and run generation prompt
+```
+
+**Transform your development workflow with intelligent, automated cursor rules!** 🎊
+
+---
+
+**Version:** 2.0.0  
+**Last Updated:** October 30, 2025  
+**Status:** ✅ Production Ready
+
