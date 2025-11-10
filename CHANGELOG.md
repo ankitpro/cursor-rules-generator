@@ -5,6 +5,46 @@ All notable changes to the Cursor Rules Generator will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2025-11-10
+
+### 🎯 Major Feature: Modular Role System
+
+**Breaking Change:** Switched from single `system-prompts.md` to individual role files for better customization.
+
+#### Added
+- **Individual role files** in `.cursor/prompts/`:
+  - `README.md` - Role announcement guide and overview
+  - `documentation-writer.md` - Technical writing role
+  - `frontend-developer.md` - Frontend development role
+  - `backend-developer.md` - Backend development role
+  - `software-architect.md` - Architecture design role
+  - `code-reviewer.md` - Code review role
+  - `qa-engineer.md` - Testing and QA role
+  - `security-analyst.md` - Security review role
+  - `performance-engineer.md` - Performance optimization role
+  - `database-administrator.md` - Database operations role
+  - Plus project-specific roles (monorepo-manager, build-engineer)
+
+#### Changed
+- **File Structure**: Replaced single `system-prompts.md` with 10+ modular role files
+- **Customization**: Users can now edit individual roles without touching others
+- **Organization**: Each role is self-contained with clear responsibilities
+- **Documentation**: Updated all docs to reflect new structure
+
+#### Benefits
+- ✅ **Easier Customization**: Edit only the roles you want to change
+- ✅ **Better Organization**: Each role has its own dedicated file
+- ✅ **Clearer Context**: Role-specific documentation in focused files
+- ✅ **Reduced Clutter**: No need to scroll through a 500-line file
+- ✅ **Git-Friendly**: Better diffs when roles change
+
+#### Migration
+- Existing projects with `system-prompts.md` will continue to work
+- Re-run the generator to get the new modular structure
+- Previous `system-prompts.md` can be safely deleted after regeneration
+
+---
+
 ## [2.0.0] - 2025-11-10
 
 ### Added - MCP Server Support 🎉

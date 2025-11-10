@@ -2,7 +2,7 @@
 
 **Automatically generate production-quality, modular `.cursorrules` for any project**
 
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 > _"Empowering developers, one cursor rule at a time"_
