@@ -454,5 +454,13 @@ Special thanks to:
 
 ---
 
+## ☕ Support This Project
+
+Enjoying the templates? Consider supporting the project:
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/chillbaba)
+
+---
+
 **Built with ❤️ for the developer community**
 

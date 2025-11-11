@@ -4,6 +4,7 @@
 
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Buy Me A Coffee](https://img.shields.io/badge/☕_Buy_Me_A_Coffee-Support-orange?logo=buy-me-a-coffee)](https://www.buymeacoffee.com/chillbaba)
 
 > _"Empowering developers, one cursor rule at a time"_
 
@@ -334,6 +335,29 @@ Contributions are welcome and encouraged! Whether you're fixing bugs, adding fea
 - 💡 Mission: Making Cursor development more efficient for everyone
 
 _"Born from real-world needs, built for real-world developers."_
+
+---
+
+## ☕ Support This Project
+
+If you find this project helpful, consider supporting its development:
+
+<a href="https://www.buymeacoffee.com/chillbaba" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="60" width="217">
+</a>
+
+**Direct link:** https://www.buymeacoffee.com/chillbaba
+
+**Other ways to support:**
+- ⭐ Star this repository on GitHub
+- 🐛 Report bugs and suggest features
+- 📖 Improve documentation
+- 🔄 Share with other developers
+- 🤝 Contribute templates and code
+
+Your support helps maintain and improve this tool for the entire community! 🙏
+
+See [docs/SUPPORT.md](docs/SUPPORT.md) for more ways to contribute.
 
 ---
 
