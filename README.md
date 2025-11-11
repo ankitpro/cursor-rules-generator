@@ -2,7 +2,7 @@
 
 **Automatically generate production-quality, modular `.cursorrules` for any project**
 
-[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 > _"Empowering developers, one cursor rule at a time"_
@@ -71,6 +71,41 @@ Cursor automatically announces and adopts appropriate expert roles:
 - 🔒 Security Analyst
 - And more...
 
+### 🎨 Template Library (NEW in v3.0!)
+Start with pre-built templates for popular tech stacks, then let our analyzer customize them for your project:
+
+**Available Templates:**
+
+**Frameworks:**
+- ⚛️ React + TypeScript + Tailwind
+- ⚡ Next.js App Router
+- 🐍 Python FastAPI
+- 🌐 Django REST Framework
+- 💚 Vue 3 + TypeScript
+- 🚀 Express + TypeScript
+
+**Full Stacks:**
+- 🎯 Full-Stack TypeScript
+- 🏗️ Microservices Architecture
+
+**Languages:**
+- 🐍 Python Best Practices
+- 🦀 Rust Patterns
+
+**DevOps & Cloud (NEW!):**
+- 🔧 Terraform + AWS
+- ☸️ Kubernetes + Helm
+- 🐳 Docker Compose
+- 🔄 GitHub Actions CI/CD
+
+**How It Works:**
+1. **Optional:** Choose a template: `"List available templates"`
+2. **Automatic:** Analyzer scans your codebase
+3. **Smart Merge:** Template best practices + your patterns
+4. **Result:** Best of both worlds!
+
+See [TEMPLATES.md](TEMPLATES.md) for details on each template.
+
 ---
 
 ## 🚀 Quick Start
@@ -137,12 +172,13 @@ rm -rf cursor-rules-generator
 | File | Purpose |
 |------|---------|
 | **[README.md](README.md)** | Project overview - Start here! |
-| **[MCP_SETUP.md](MCP_SETUP.md)** | **NEW!** MCP Server setup guide |
+| **[TEMPLATES.md](TEMPLATES.md)** | **NEW v3.0!** Template library guide |
+| **[CHANGELOG.md](CHANGELOG.md)** | **v3.0** features and changelog |
+| **[MCP_SETUP.md](MCP_SETUP.md)** | MCP Server setup guide |
 | **[QUICK_START.md](QUICK_START.md)** | 5-minute setup guide (folder method) |
 | **[docs/USER_GUIDE.md](docs/USER_GUIDE.md)** | Complete user guide |
 | **[docs/GENERATOR_TEMPLATE.md](docs/GENERATOR_TEMPLATE.md)** | Master template (for Cursor AI) |
 | **[docs/STRUCTURE_EXAMPLE.md](docs/STRUCTURE_EXAMPLE.md)** | Visual example of generated structure |
-| **[docs/CHANGELOG.md](docs/CHANGELOG.md)** | v2.0 features and changelog |
 | **[CONTRIBUTING.md](CONTRIBUTING.md)** | Contribution guidelines |
 
 ---

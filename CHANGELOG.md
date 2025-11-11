@@ -5,6 +5,103 @@ All notable changes to the Cursor Rules Generator will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2025-11-10
+
+### 🎉 Major Feature: Template Library System
+
+**BREAKING CHANGE:** MCP tool schemas updated with optional template parameters (backward compatible).
+
+#### 🎨 Added - Template Library
+
+**14 Pre-Built Templates:**
+
+**Frameworks (6):**
+- React + TypeScript + Tailwind CSS
+- Next.js 14+ App Router
+- Python FastAPI (Async)
+- Django REST Framework
+- Vue 3 + TypeScript (Composition API)
+- Express + TypeScript
+
+**Full Stacks (2):**
+- Full-Stack TypeScript (Monorepo)
+- Microservices Architecture
+
+**Languages (2):**
+- Python Best Practices
+- Rust Development Patterns
+
+**DevOps & Cloud (4):**
+- Terraform + AWS Infrastructure
+- Kubernetes + Helm
+- Docker Compose Development
+- GitHub Actions CI/CD
+
+#### 🛠️ New Features
+
+1. **Template Selection System**
+   - Browse templates by category (framework, language, stack, specialized)
+   - Filter templates by tags
+   - Get AI-suggested templates based on project analysis
+
+2. **Three Merge Strategies**
+   - `template-first`: Template as base + analysis insights
+   - `analysis-first`: Analysis as base + template best practices
+   - `balanced` (default): Equal merge of both
+
+3. **New MCP Tools**
+   - `list_templates`: Browse available templates
+   - `suggest_templates`: Get recommendations based on analysis
+   - Enhanced `generate_cursor_rules`: Now supports optional template parameter
+
+4. **Smart Template Merging**
+   - Automatic detection of applicable templates
+   - Intelligent merging of template content with project analysis
+   - Preserves project-specific patterns while adding best practices
+
+#### 📚 Documentation
+
+- **NEW:** [TEMPLATES.md](TEMPLATES.md) - Complete template library documentation
+- Updated README.md with template library section
+- Updated MCP_SETUP.md with template usage examples
+- Enhanced CHANGELOG with feature breakdown
+
+#### 🔄 Changed
+
+- MCP server version updated to 3.0.0
+- `generate_cursor_rules` tool schema now accepts optional `template` parameter
+- Generator function updated to support template merging
+- Template system architecture integrated into core
+
+#### 💡 Benefits
+
+- **Quick Start**: Pre-built templates for popular stacks
+- **Community Wisdom**: Best practices from awesome-cursorrules
+- **Still Automated**: Templates are optional enhancements
+- **Fully Customized**: Smart merge with your actual codebase
+- **Backward Compatible**: Works without templates too
+
+#### 📖 Credits
+
+Templates inspired by [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) community.
+
+#### 🔗 Migration Guide
+
+**No migration needed!** Templates are optional features:
+
+**Existing workflow (still works):**
+```
+"Generate cursor rules for my project"
+```
+
+**New workflow with templates:**
+```
+"List available templates"
+"Generate cursor rules using the React TypeScript template"
+```
+
+---
+
 ## [2.1.0] - 2025-11-10
 
 ### 🎯 Major Feature: Modular Role System

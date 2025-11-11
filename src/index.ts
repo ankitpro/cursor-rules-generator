@@ -23,6 +23,7 @@ import { generateFullAnalysisReport } from "./analyzers/reportGenerator.js";
 import { generateCursorRules } from "./generator/cursorRulesGenerator.js";
 import { cloneOrUpdateRepo, getRepoPath } from "./utils/gitUtils.js";
 import { AnalysisResult, GenerationOptions } from "./types.js";
+import { listTemplates, getTemplate, suggestTemplates } from "./templates/index.js";
 
 // Get configuration from environment or args
 const TEMPLATE_REPO_URL = process.env.TEMPLATE_REPO_URL || 
@@ -31,7 +32,7 @@ const TEMPLATE_REPO_URL = process.env.TEMPLATE_REPO_URL ||
 const server = new Server(
   {
     name: "cursor-rules-generator",
-    version: "2.0.0",
+    version: "3.0.0",
   },
   {
     capabilities: {
@@ -86,9 +87,44 @@ const tools: Tool[] = [
     },
   },
   {
+    name: "list_templates",
+    description:
+      "List available pre-built templates for common tech stacks and frameworks. Use this to discover templates before generation.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        category: {
+          type: "string",
+          enum: ["framework", "language", "stack", "specialized"],
+          description: "Optional: Filter templates by category",
+        },
+        tags: {
+          type: "array",
+          items: { type: "string" },
+          description: "Optional: Filter templates by tags (e.g., 'react', 'typescript', 'python')",
+        },
+      },
+    },
+  },
+  {
+    name: "suggest_templates",
+    description:
+      "Get template suggestions based on project analysis. Run analyze_project first, then use this to get recommended templates.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        analysisResult: {
+          type: "object",
+          description: "The analysis result from analyze_project",
+        },
+      },
+      required: ["analysisResult"],
+    },
+  },
+  {
     name: "generate_cursor_rules",
     description:
-      "Generate modular .cursorrules files based on project analysis. Run analyze_project first to get analysis data, or this will run it automatically.",
+      "Generate modular .cursorrules files based on project analysis. Optionally start with a pre-built template. Run analyze_project first to get analysis data, or this will run it automatically.",
     inputSchema: {
       type: "object",
       properties: {
@@ -107,6 +143,22 @@ const tools: Tool[] = [
           description:
             "Which approach to use: 'current_patterns' (document as-is), 'best_practices' (apply industry standards), or 'hybrid' (mix of both)",
           default: "best_practices",
+        },
+        template: {
+          type: "object",
+          description: "Optional: Start with a pre-built template",
+          properties: {
+            templateId: {
+              type: "string",
+              description: "Template ID from list_templates (e.g., 'react-typescript-tailwind')",
+            },
+            mergeStrategy: {
+              type: "string",
+              enum: ["template-first", "analysis-first", "balanced"],
+              description: "How to merge template with analysis: 'template-first' (template as base), 'analysis-first' (analysis as base), or 'balanced' (merge both equally)",
+              default: "balanced",
+            },
+          },
         },
       },
       required: ["projectPath"],
@@ -375,6 +427,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const options: GenerationOptions = {
           approach,
           projectPath,
+          template: args.template as GenerationOptions["template"],
         };
 
         const result = await generateCursorRules(analysisResult, options);
@@ -389,6 +442,75 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                   filesGenerated: result.filesGenerated,
                   structure: result.structure,
                   message: `Successfully generated ${result.filesGenerated.length} cursor rules files in modular structure.`,
+                },
+                null,
+                2
+              ),
+            },
+          ],
+        };
+      }
+
+      case "list_templates": {
+        const category = args?.category as "framework" | "language" | "stack" | "specialized" | undefined;
+        const tags = args?.tags as string[] | undefined;
+
+        const templates = listTemplates({ category, tags });
+
+        return {
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify(
+                {
+                  templates: templates.map(t => ({
+                    id: t.id,
+                    name: t.name,
+                    description: t.description,
+                    category: t.category,
+                    tags: t.tags,
+                  })),
+                  count: templates.length,
+                  message: `Found ${templates.length} template(s)`,
+                },
+                null,
+                2
+              ),
+            },
+          ],
+        };
+      }
+
+      case "suggest_templates": {
+        if (!args || !args.analysisResult) {
+          throw new Error("analysisResult is required");
+        }
+
+        const analysisResult = args.analysisResult as AnalysisResult;
+        
+        const suggestions = suggestTemplates({
+          languages: analysisResult.dependencies.languages,
+          frameworks: analysisResult.dependencies.frameworks,
+          projectType: analysisResult.structure.projectType,
+        });
+
+        return {
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify(
+                {
+                  suggestions: suggestions.map(t => ({
+                    id: t.id,
+                    name: t.name,
+                    description: t.description,
+                    category: t.category,
+                    tags: t.tags,
+                  })),
+                  count: suggestions.length,
+                  message: suggestions.length > 0
+                    ? `Found ${suggestions.length} recommended template(s) for your project`
+                    : "No specific templates recommended. You can browse all templates with list_templates.",
                 },
                 null,
                 2

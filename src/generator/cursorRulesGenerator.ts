@@ -8,6 +8,8 @@ import { generateCodeStyleRules } from "./templates/codeStyleTemplate.js";
 import { generateGitWorkflowRules } from "./templates/gitWorkflowTemplate.js";
 import { generateTestingRules } from "./templates/testingTemplate.js";
 import { generateSecurityRules } from "./templates/securityTemplate.js";
+import { getTemplate } from "../templates/index.js";
+import { mergeTemplateWithAnalysis } from "../templates/loader.js";
 import {
   generatePromptsReadme,
   generateDocumentationWriterRole,
@@ -28,7 +30,18 @@ export async function generateCursorRules(
   analysis: AnalysisResult,
   options: GenerationOptions
 ): Promise<GenerationResult> {
-  const { projectPath, approach } = options;
+  const { projectPath, approach, template: templateOptions } = options;
+
+  // Load template if specified
+  let template = null;
+  let mergedContent = null;
+  if (templateOptions?.templateId) {
+    template = getTemplate(templateOptions.templateId);
+    if (template) {
+      const mergeStrategy = templateOptions.mergeStrategy || "balanced";
+      mergedContent = await mergeTemplateWithAnalysis(template, analysis, mergeStrategy);
+    }
+  }
 
   // Create directory structure
   const cursorDir = join(projectPath, ".cursor");
@@ -48,36 +61,36 @@ export async function generateCursorRules(
 
   const filesGenerated: string[] = [];
 
-  // Generate all files
+  // Generate all files (use merged content if available, otherwise generate from analysis)
   const files = [
     {
       path: join(projectPath, ".cursorrules"),
-      content: generateMainCursorRules(analysis, approach),
+      content: mergedContent?.mainRules || generateMainCursorRules(analysis, approach),
       name: ".cursorrules",
     },
     {
       path: join(rulesDir, "architecture.md"),
-      content: generateArchitectureRules(analysis, approach),
+      content: mergedContent?.architectureRules || generateArchitectureRules(analysis, approach),
       name: ".cursor/rules/architecture.md",
     },
     {
       path: join(rulesDir, "code-style.md"),
-      content: generateCodeStyleRules(analysis, approach),
+      content: mergedContent?.codeStyleRules || generateCodeStyleRules(analysis, approach),
       name: ".cursor/rules/code-style.md",
     },
     {
       path: join(rulesDir, "git-workflow.md"),
-      content: generateGitWorkflowRules(analysis, approach),
+      content: mergedContent?.gitWorkflowRules || generateGitWorkflowRules(analysis, approach),
       name: ".cursor/rules/git-workflow.md",
     },
     {
       path: join(rulesDir, "testing.md"),
-      content: generateTestingRules(analysis, approach),
+      content: mergedContent?.testingRules || generateTestingRules(analysis, approach),
       name: ".cursor/rules/testing.md",
     },
     {
       path: join(rulesDir, "security.md"),
-      content: generateSecurityRules(analysis, approach),
+      content: mergedContent?.securityRules || generateSecurityRules(analysis, approach),
       name: ".cursor/rules/security.md",
     },
     // Prompts directory - README and individual role files
@@ -174,6 +187,7 @@ export async function generateCursorRules(
   return {
     filesGenerated,
     structure,
+    templateUsed: template?.name,
   };
 }
 
