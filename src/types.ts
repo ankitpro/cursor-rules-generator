@@ -95,10 +95,16 @@ export interface AnalysisResult {
   testing: TestingAnalysis;
 }
 
+export interface TemplateSelectionOptions {
+  templateId?: string;
+  mergeStrategy?: "template-first" | "analysis-first" | "balanced";
+}
+
 export interface GenerationOptions {
   approach: "current_patterns" | "best_practices" | "hybrid";
   projectPath: string;
   hybridChoices?: Record<string, "current" | "best_practice">;
+  template?: TemplateSelectionOptions;
 }
 
 export interface GenerationResult {
@@ -112,5 +118,6 @@ export interface GenerationResult {
       lines: number;
     }[];
   };
+  templateUsed?: string;
 }
 

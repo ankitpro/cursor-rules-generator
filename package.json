@@ -1,6 +1,6 @@
 {
   "name": "cursor-rules-generator-mcp",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "MCP Server for automatically generating production-quality, modular .cursorrules for any project",
   "type": "module",
   "main": "dist/index.js",
