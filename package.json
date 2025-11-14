@@ -34,10 +34,6 @@
     "url": "https://github.com/ankitpro/cursor-rules-generator/issues"
   },
   "homepage": "https://github.com/ankitpro/cursor-rules-generator#readme",
-  "funding": {
-    "type": "individual",
-    "url": "https://www.buymeacoffee.com/chillbaba"
-  },
   "files": [
     "dist",
     "README.md",
