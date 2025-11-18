@@ -36,24 +36,24 @@ your-project/
 ├── .cursorrules              # Main entry point (~150 lines)
 └── .cursor/
     ├── rules/                # Topic-specific detailed rules
-    │   ├── architecture.md
-    │   ├── code-style.md
-    │   ├── git-workflow.md
-    │   ├── testing.md
-    │   ├── security.md
-    │   └── performance.md
+    │   ├── architecture.mdc
+    │   ├── code-style.mdc
+    │   ├── git-workflow.mdc
+    │   ├── testing.mdc
+    │   ├── security.mdc
+    │   └── performance.mdc
     ├── prompts/              # Modular role-based system
-    │   ├── README.md         # Role announcement guide
-    │   ├── documentation-writer.md
-    │   ├── frontend-developer.md
-    │   ├── backend-developer.md
-    │   ├── software-architect.md
-    │   ├── code-reviewer.md
-    │   ├── qa-engineer.md
-    │   ├── security-analyst.md
-    │   ├── performance-engineer.md
-    │   └── database-administrator.md
-    └── quick-reference.md    # Commands & patterns
+    │   ├── README.mdc        # Role announcement guide
+    │   ├── documentation-writer.mdc
+    │   ├── frontend-developer.mdc
+    │   ├── backend-developer.mdc
+    │   ├── software-architect.mdc
+    │   ├── code-reviewer.mdc
+    │   ├── qa-engineer.mdc
+    │   ├── security-analyst.mdc
+    │   ├── performance-engineer.mdc
+    │   └── database-administrator.mdc
+    └── quick-reference.mdc   # Commands & patterns
 ```
 
 ### 🌍 Universal Support
@@ -229,7 +229,7 @@ Based on your choice, Cursor creates:
 - Main `.cursorrules` with quick context
 - `.cursor/rules/` with detailed topic files
 - `.cursor/prompts/` with individual role files (each role has its own file for easy customization!)
-- `.cursor/quick-reference.md` with commands
+- `.cursor/quick-reference.mdc` with commands
 
 ---
 

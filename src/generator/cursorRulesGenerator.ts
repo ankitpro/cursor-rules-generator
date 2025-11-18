@@ -69,102 +69,102 @@ export async function generateCursorRules(
       name: ".cursorrules",
     },
     {
-      path: join(rulesDir, "architecture.md"),
+      path: join(rulesDir, "architecture.mdc"),
       content: mergedContent?.architectureRules || generateArchitectureRules(analysis, approach),
-      name: ".cursor/rules/architecture.md",
+      name: ".cursor/rules/architecture.mdc",
     },
     {
-      path: join(rulesDir, "code-style.md"),
+      path: join(rulesDir, "code-style.mdc"),
       content: mergedContent?.codeStyleRules || generateCodeStyleRules(analysis, approach),
-      name: ".cursor/rules/code-style.md",
+      name: ".cursor/rules/code-style.mdc",
     },
     {
-      path: join(rulesDir, "git-workflow.md"),
+      path: join(rulesDir, "git-workflow.mdc"),
       content: mergedContent?.gitWorkflowRules || generateGitWorkflowRules(analysis, approach),
-      name: ".cursor/rules/git-workflow.md",
+      name: ".cursor/rules/git-workflow.mdc",
     },
     {
-      path: join(rulesDir, "testing.md"),
+      path: join(rulesDir, "testing.mdc"),
       content: mergedContent?.testingRules || generateTestingRules(analysis, approach),
-      name: ".cursor/rules/testing.md",
+      name: ".cursor/rules/testing.mdc",
     },
     {
-      path: join(rulesDir, "security.md"),
+      path: join(rulesDir, "security.mdc"),
       content: mergedContent?.securityRules || generateSecurityRules(analysis, approach),
-      name: ".cursor/rules/security.md",
+      name: ".cursor/rules/security.mdc",
     },
     // Prompts directory - README and individual role files
     {
-      path: join(promptsDir, "README.md"),
+      path: join(promptsDir, "README.mdc"),
       content: generatePromptsReadme(analysis),
-      name: ".cursor/prompts/README.md",
+      name: ".cursor/prompts/README.mdc",
     },
     {
-      path: join(promptsDir, "documentation-writer.md"),
+      path: join(promptsDir, "documentation-writer.mdc"),
       content: generateDocumentationWriterRole(),
-      name: ".cursor/prompts/documentation-writer.md",
+      name: ".cursor/prompts/documentation-writer.mdc",
     },
     {
-      path: join(promptsDir, "frontend-developer.md"),
+      path: join(promptsDir, "frontend-developer.mdc"),
       content: generateFrontendDeveloperRole(analysis),
-      name: ".cursor/prompts/frontend-developer.md",
+      name: ".cursor/prompts/frontend-developer.mdc",
     },
     {
-      path: join(promptsDir, "backend-developer.md"),
+      path: join(promptsDir, "backend-developer.mdc"),
       content: generateBackendDeveloperRole(analysis),
-      name: ".cursor/prompts/backend-developer.md",
+      name: ".cursor/prompts/backend-developer.mdc",
     },
     {
-      path: join(promptsDir, "software-architect.md"),
+      path: join(promptsDir, "software-architect.mdc"),
       content: generateSoftwareArchitectRole(),
-      name: ".cursor/prompts/software-architect.md",
+      name: ".cursor/prompts/software-architect.mdc",
     },
     {
-      path: join(promptsDir, "code-reviewer.md"),
+      path: join(promptsDir, "code-reviewer.mdc"),
       content: generateCodeReviewerRole(),
-      name: ".cursor/prompts/code-reviewer.md",
+      name: ".cursor/prompts/code-reviewer.mdc",
     },
     {
-      path: join(promptsDir, "qa-engineer.md"),
+      path: join(promptsDir, "qa-engineer.mdc"),
       content: generateQAEngineerRole(analysis),
-      name: ".cursor/prompts/qa-engineer.md",
+      name: ".cursor/prompts/qa-engineer.mdc",
     },
     {
-      path: join(promptsDir, "security-analyst.md"),
+      path: join(promptsDir, "security-analyst.mdc"),
       content: generateSecurityAnalystRole(),
-      name: ".cursor/prompts/security-analyst.md",
+      name: ".cursor/prompts/security-analyst.mdc",
     },
     {
-      path: join(promptsDir, "performance-engineer.md"),
+      path: join(promptsDir, "performance-engineer.mdc"),
       content: generatePerformanceEngineerRole(),
-      name: ".cursor/prompts/performance-engineer.md",
+      name: ".cursor/prompts/performance-engineer.mdc",
     },
     {
-      path: join(promptsDir, "database-administrator.md"),
+      path: join(promptsDir, "database-administrator.mdc"),
       content: generateDatabaseAdministratorRole(analysis),
-      name: ".cursor/prompts/database-administrator.md",
+      name: ".cursor/prompts/database-administrator.mdc",
     },
     {
-      path: join(cursorDir, "quick-reference.md"),
+      path: join(cursorDir, "quick-reference.mdc"),
       content: generateQuickReference(analysis),
-      name: ".cursor/quick-reference.md",
+      name: ".cursor/quick-reference.mdc",
     },
   ];
 
   // Add project-specific role files if needed
   if (analysis.structure.isMonorepo) {
     files.push({
-      path: join(promptsDir, "monorepo-manager.md"),
+      path: join(promptsDir, "monorepo-manager.mdc"),
       content: generateMonorepoManagerRole(),
-      name: ".cursor/prompts/monorepo-manager.md",
+      name: ".cursor/prompts/monorepo-manager.mdc",
     });
   }
 
   if (analysis.dependencies.buildTools.length > 0) {
     files.push({
-      path: join(promptsDir, "build-engineer.md"),
+      path: join(promptsDir, "build-engineer.mdc"),
       content: generateBuildEngineerRole(analysis),
-      name: ".cursor/prompts/build-engineer.md",
+      name: ".cursor/prompts/build-engineer.mdc",
     });
   }
 

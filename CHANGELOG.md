@@ -5,6 +5,21 @@ All notable changes to the Cursor Rules Generator will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.3] - 2025-11-18
+
+### 🔧 Fixed
+
+- **File Extension Change**: Changed all generated files in `.cursor/` folder from `.md` to `.mdc` extension
+  - Updated `rules/` files (architecture, code-style, git-workflow, testing, security)
+  - Updated `prompts/` files (README and all role files)
+  - Updated `quick-reference` file
+  - This ensures proper file type recognition in Cursor IDE
+
+### 📝 Documentation
+
+- Updated README.md to reflect `.mdc` file extensions in the structure examples
+- Updated all documentation references to use `.mdc` extensions for generated files
+
 ## [3.0.0] - 2025-11-10
 
 ### 🎉 Major Feature: Template Library System
