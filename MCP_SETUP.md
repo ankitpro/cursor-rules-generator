@@ -124,7 +124,7 @@ Analyzes a project to detect technologies, patterns, and structure.
 ```
 
 ### `generate_cursor_rules`
-Generates modular .cursorrules files based on project analysis.
+Generates modular cursor rules in `.cursor/rules/` directory based on project analysis.
 
 **Parameters:**
 - `projectPath` (required): Absolute path to project root
@@ -186,10 +186,10 @@ Here's a complete example of using the MCP server:
 3. Me: "Apply best practices"
 
 4. Cursor: [Uses generate_cursor_rules tool with approach="best_practices"]
-   - Generates: .cursorrules
-   - Generates: .cursor/rules/*.md
-   - Generates: .cursor/prompts/README.md and individual role files
-   - Reports: "Successfully generated 8 files"
+   - Generates: .cursor/rules/main.mdc (main entry point)
+   - Generates: .cursor/rules/*.mdc (architecture, code-style, etc.)
+   - Generates: .cursor/prompts/README.mdc and individual role files
+   - Reports: "Successfully generated cursor rules files"
 
 5. Me: "Great! Commit these files"
 

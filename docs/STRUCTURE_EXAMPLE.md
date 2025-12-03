@@ -9,64 +9,64 @@ When Cursor scans your repository and generates cursor rules, you'll get:
 ```
 your-project/
 │
-├── .cursorrules                                 # 📄 Main entry (150 lines)
-│   └── Quick context, role system, references
+├── AGENTS.md                                    # 📄 Optional: Simple alternative
 │
 └── .cursor/                                     # 📁 Organized rules directory
     │
     ├── rules/                                   # 📁 Detailed topic-specific rules
-    │   ├── architecture.md                      # 📄 200-400 lines
+    │   ├── main.mdc                             # 📄 Main entry (150 lines)
+    │   ├── architecture.mdc                     # 📄 200-400 lines
     │   │   ├── Framework patterns
     │   │   ├── File organization
     │   │   ├── Module structure
     │   │   └── Dependency management
     │   │
-    │   ├── code-style.md                        # 📄 200-300 lines
+    │   ├── code-style.mdc                       # 📄 200-300 lines
     │   │   ├── Naming conventions
     │   │   ├── Formatting standards
     │   │   ├── Documentation requirements
     │   │   └── Language-specific practices
     │   │
-    │   ├── git-workflow.md                      # 📄 150-250 lines
+    │   ├── git-workflow.mdc                     # 📄 150-250 lines
     │   │   ├── Branch strategy
     │   │   ├── Commit message format
     │   │   ├── PR guidelines
     │   │   └── Versioning approach
     │   │
-    │   ├── testing.md                           # 📄 150-250 lines
+    │   ├── testing.mdc                          # 📄 150-250 lines
     │   │   ├── Test framework setup
     │   │   ├── Test organization
     │   │   ├── Test patterns
     │   │   └── Coverage requirements
     │   │
-    │   ├── security.md                          # 📄 150-250 lines
+    │   ├── security.mdc                         # 📄 150-250 lines
     │   │   ├── Authentication patterns
     │   │   ├── Input validation
     │   │   ├── API security
     │   │   └── Security checklist
     │   │
-    │   └── performance.md                       # 📄 150-250 lines (optional)
+    │   └── performance.mdc                      # 📄 150-250 lines (optional)
     │       ├── Framework optimizations
     │       ├── Caching strategies
     │       └── Monitoring
     │
     ├── prompts/                                 # 📁 AI system prompts
-    │   ├── README.md                             # 📄 Role announcement guide
-    │   ├── documentation-writer.md
-    │   ├── frontend-developer.md
-    │   ├── backend-developer.md
-    │   ├── software-architect.md
-    │   ├── code-reviewer.md
-    │   ├── qa-engineer.md
-    │   ├── security-analyst.md
-    │   ├── performance-engineer.md
-    │   └── database-administrator.md
+    │   ├── README.mdc                           # 📄 Role announcement guide
+    │   ├── documentation-writer.mdc
+    │   ├── frontend-developer.mdc
+    │   ├── backend-developer.mdc
+    │   ├── software-architect.mdc
+    │   ├── code-reviewer.mdc
+    │   ├── qa-engineer.mdc
+    │   ├── security-analyst.mdc
+    │   ├── performance-engineer.mdc
+    │   └── database-administrator.mdc
     │       ├── Full role-based system
     │       ├── Role selection guide
     │       ├── Role announcement examples
     │       └── Role-specific standards
     │
-    └── quick-reference.md                       # 📄 100-200 lines
+    └── quick-reference.mdc                      # 📄 100-200 lines
         ├── Common commands
         ├── File locations
         ├── Key patterns
@@ -88,9 +88,15 @@ your-project/
 
 ## 🎯 How It Works
 
-### 1. Main `.cursorrules` Loads First
+### 1. Main `.cursor/rules/main.mdc` Loads First
 
 ```markdown
+---
+description: Main project context and quick reference
+globs:
+alwaysApply: true
+---
+
 # ProjectName Cursor Rules
 
 > **Modular Structure:** Detailed rules in `.cursor/rules/`
@@ -101,29 +107,29 @@ your-project/
 - Brief role announcement requirement
 
 ## Detailed Guidelines
-- See `.cursor/rules/architecture.md` for patterns
-- See `.cursor/rules/code-style.md` for naming
-- See `.cursor/rules/git-workflow.md` for commits
+- See `.cursor/rules/architecture.mdc` for patterns
+- See `.cursor/rules/code-style.mdc` for naming
+- See `.cursor/rules/git-workflow.mdc` for commits
 - [etc...]
 
 ## Quick Reference
-- See `.cursor/quick-reference.md` for commands
+- See `.cursor/quick-reference.mdc` for commands
 ```
 
 ### 2. Cursor References Specific Files On-Demand
 
 **When creating a component:**
-→ Reads `.cursor/rules/architecture.md` for patterns
-→ Reads `.cursor/rules/code-style.md` for naming
-→ Announces role from `.cursor/prompts/system-prompts.md`
+→ Reads `.cursor/rules/architecture.mdc` for patterns
+→ Reads `.cursor/rules/code-style.mdc` for naming
+→ Announces role from `.cursor/prompts/README.mdc`
 
 **When writing tests:**
-→ Reads `.cursor/rules/testing.md` for patterns
-→ Reads `.cursor/rules/code-style.md` for formatting
+→ Reads `.cursor/rules/testing.mdc` for patterns
+→ Reads `.cursor/rules/code-style.mdc` for formatting
 → Adopts 🧪 QA Engineer role
 
 **When making commits:**
-→ Reads `.cursor/rules/git-workflow.md` for commit format
+→ Reads `.cursor/rules/git-workflow.mdc` for commit format
 → Suggests conventional commit message
 
 ## ✅ Benefits
@@ -136,12 +142,12 @@ your-project/
 ### For Teams
 - **Progressive onboarding** - New members learn gradually
 - **Clear git diffs** - Changes to specific topics visible
-- **Shared standards** - Copy `.cursor/rules/code-style.md` across projects
+- **Shared standards** - Copy `.cursor/rules/code-style.mdc` across projects
 - **Customizable** - Each project can override specific files
 
 ### For Projects
 - **Maintainable** - Update architecture without touching test rules
-- **Scalable** - Add `.cursor/rules/deployment.md` as needed
+- **Scalable** - Add `.cursor/rules/deployment.mdc` as needed
 - **Discoverable** - Clear folder structure shows what's documented
 - **Version controllable** - Track changes per topic
 
@@ -151,38 +157,44 @@ your-project/
 
 ```bash
 # Copy code style to another project
-cp .cursor/rules/code-style.md ../other-project/.cursor/rules/
+cp .cursor/rules/code-style.mdc ../other-project/.cursor/rules/
 
 # Share testing patterns across team repos
-cp .cursor/rules/testing.md ~/shared-configs/
+cp .cursor/rules/testing.mdc ~/shared-configs/
 ```
 
 ### Extend for Your Needs
 
 ```bash
 # Add new rule file
-touch .cursor/rules/deployment.md
-touch .cursor/rules/monitoring.md
-touch .cursor/rules/api-design.md
+touch .cursor/rules/deployment.mdc
+touch .cursor/rules/monitoring.mdc
+touch .cursor/rules/api-design.mdc
 
-# Update main .cursorrules to reference them
+# Update main.mdc to reference them
 ```
 
 ### Override for Specific Tasks
 
 ```
-@cursor "Follow .cursor/rules/architecture.md but ignore performance rules for this prototype"
+@cursor "Follow .cursor/rules/architecture.mdc but ignore performance rules for this prototype"
 ```
 
 ### Reference Specific Sections
 
 ```
-@cursor "Use the commit format from .cursor/rules/git-workflow.md for this feature branch"
+@cursor "Use the commit format from .cursor/rules/git-workflow.mdc for this feature branch"
 ```
 
-## 📝 Example: Main `.cursorrules` File
+## 📝 Example: Main `.cursor/rules/main.mdc` File
 
 ```markdown
+---
+description: Main project context and quick reference
+globs:
+alwaysApply: true
+---
+
 # MyApp Cursor Rules
 
 > **📁 Modular Structure:** Detailed guidelines in `.cursor/rules/`
@@ -220,33 +232,33 @@ touch .cursor/rules/api-design.md
 - 🧪 QA Engineer - Jest tests
 - 🔍 Code Reviewer - Code quality
 
-**📖 Full documentation:** `.cursor/prompts/system-prompts.md`
+**📖 Full documentation:** `.cursor/prompts/README.mdc`
 
 ## 📚 Detailed Guidelines
 
 For comprehensive rules, see:
 
-- **Architecture:** `.cursor/rules/architecture.md`
+- **Architecture:** `.cursor/rules/architecture.mdc`
   - React component patterns
   - Express service layer
   - API design standards
 
-- **Code Style:** `.cursor/rules/code-style.md`
+- **Code Style:** `.cursor/rules/code-style.mdc`
   - TypeScript conventions
   - Naming standards
   - Documentation requirements
 
-- **Git Workflow:** `.cursor/rules/git-workflow.md`
+- **Git Workflow:** `.cursor/rules/git-workflow.mdc`
   - Feature branch strategy
   - Conventional commits
   - PR requirements
 
-- **Testing:** `.cursor/rules/testing.md`
+- **Testing:** `.cursor/rules/testing.mdc`
   - Jest + RTL patterns
   - Mock strategies
   - Coverage targets
 
-- **Security:** `.cursor/rules/security.md`
+- **Security:** `.cursor/rules/security.mdc`
   - JWT authentication
   - Input validation
   - SQL injection prevention
@@ -266,11 +278,11 @@ npm run lint       # ESLint + Prettier
 3. Express routes delegate to service layer
 4. Database queries use parameterized statements
 
-**Full reference:** `.cursor/quick-reference.md`
+**Full reference:** `.cursor/quick-reference.mdc`
 
 ---
 
-**Version:** 2.0.0 (Modular Structure)
+**Version:** 3.2.0 (Official .cursor/rules/ Format)
 **Last Updated:** [Generated date]
 ```
 

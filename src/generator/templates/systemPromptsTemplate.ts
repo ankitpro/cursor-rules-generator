@@ -2,7 +2,13 @@ import { AnalysisResult } from "../../types.js";
 
 // Generate README for prompts directory
 export function generatePromptsReadme(analysis: AnalysisResult): string {
-  return `# Role-Based System Prompts
+  return `---
+description: Role-based system prompts guide for AI-assisted development
+globs:
+alwaysApply: false
+---
+
+# Role-Based System Prompts
 
 Cursor adopts different expert roles based on the task type to ensure consistent quality and adherence to project standards.
 
@@ -77,7 +83,13 @@ Complex tasks may require multiple roles in sequence:
 
 // Individual role generators
 export function generateDocumentationWriterRole(): string {
-  return `# 📝 Documentation Writer
+  return `---
+description: Documentation writer role for creating technical docs, API documentation, and guides
+globs:
+alwaysApply: false
+---
+
+# 📝 Documentation Writer
 
 ## When to Use This Role
 
@@ -134,7 +146,13 @@ export function generateDocumentationWriterRole(): string {
 
 export function generateFrontendDeveloperRole(analysis: AnalysisResult): string {
   const framework = getFrontendFramework(analysis);
-  return `# ⚛️ Frontend Developer
+  return `---
+description: Frontend developer role for building UI components with ${framework}, managing state, and implementing responsive design
+globs:
+alwaysApply: false
+---
+
+# ⚛️ Frontend Developer
 
 ## When to Use This Role
 
@@ -195,7 +213,13 @@ export function generateFrontendDeveloperRole(analysis: AnalysisResult): string 
 
 export function generateBackendDeveloperRole(analysis: AnalysisResult): string {
   const framework = getBackendFramework(analysis);
-  return `# 🔧 Backend Developer
+  return `---
+description: Backend developer role for creating APIs with ${framework}, implementing business logic, and database operations
+globs:
+alwaysApply: false
+---
+
+# 🔧 Backend Developer
 
 ## When to Use This Role
 
@@ -257,7 +281,13 @@ export function generateBackendDeveloperRole(analysis: AnalysisResult): string {
 }
 
 export function generateSoftwareArchitectRole(): string {
-  return `# 🏗️ Software Architect
+  return `---
+description: Software architect role for designing system architecture, making technical decisions, and ensuring scalability
+globs:
+alwaysApply: false
+---
+
+# 🏗️ Software Architect
 
 ## When to Use This Role
 
@@ -313,7 +343,13 @@ export function generateSoftwareArchitectRole(): string {
 }
 
 export function generateCodeReviewerRole(): string {
-  return `# 🔍 Code Reviewer
+  return `---
+description: Code reviewer role for analyzing code quality, identifying issues, and ensuring best practices
+globs:
+alwaysApply: false
+---
+
+# 🔍 Code Reviewer
 
 ## When to Use This Role
 
@@ -378,7 +414,13 @@ export function generateCodeReviewerRole(): string {
 }
 
 export function generateQAEngineerRole(analysis: AnalysisResult): string {
-  return `# 🧪 QA Engineer
+  return `---
+description: QA engineer role for writing tests, ensuring quality, and validating functionality
+globs:
+alwaysApply: false
+---
+
+# 🧪 QA Engineer
 
 ## When to Use This Role
 
@@ -452,7 +494,13 @@ export function generateQAEngineerRole(analysis: AnalysisResult): string {
 }
 
 export function generateSecurityAnalystRole(): string {
-  return `# 🔒 Security Analyst
+  return `---
+description: Security analyst role for identifying vulnerabilities, ensuring secure coding practices, and reviewing authentication
+globs:
+alwaysApply: false
+---
+
+# 🔒 Security Analyst
 
 ## When to Use This Role
 
@@ -521,7 +569,13 @@ export function generateSecurityAnalystRole(): string {
 }
 
 export function generatePerformanceEngineerRole(): string {
-  return `# ⚡ Performance Engineer
+  return `---
+description: Performance engineer role for optimizing code, improving load times, and ensuring scalability
+globs:
+alwaysApply: false
+---
+
+# ⚡ Performance Engineer
 
 ## When to Use This Role
 
@@ -582,7 +636,13 @@ export function generatePerformanceEngineerRole(): string {
 }
 
 export function generateDatabaseAdministratorRole(analysis: AnalysisResult): string {
-  return `# 🗄️ Database Administrator
+  return `---
+description: Database administrator role for designing schemas, optimizing queries, and managing database operations
+globs:
+alwaysApply: false
+---
+
+# 🗄️ Database Administrator
 
 ## When to Use This Role
 
@@ -685,7 +745,13 @@ function getProjectSpecificRolesReadme(analysis: AnalysisResult): string {
 }
 
 export function generateMonorepoManagerRole(): string {
-  return `# 📦 Monorepo Manager
+  return `---
+description: Monorepo manager role for coordinating across packages, managing dependencies, and ensuring consistency
+globs:
+alwaysApply: false
+---
+
+# 📦 Monorepo Manager
 
 ## When to Use This Role
 
@@ -717,7 +783,13 @@ export function generateMonorepoManagerRole(): string {
 }
 
 export function generateBuildEngineerRole(analysis: AnalysisResult): string {
-  return `# 🔨 Build Engineer
+  return `---
+description: Build engineer role for configuring build processes, optimizing compilation, and managing CI/CD
+globs:
+alwaysApply: false
+---
+
+# 🔨 Build Engineer
 
 ## When to Use This Role
 

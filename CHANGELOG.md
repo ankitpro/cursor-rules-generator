@@ -5,6 +5,110 @@ All notable changes to the Cursor Rules Generator will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+---
+
+## [3.2.0] - 2025-12-03
+
+### 🗑️ Breaking Change: Removed Deprecated `.cursorrules` File
+
+This release removes the deprecated `.cursorrules` file and fully adopts the official Cursor `.cursor/rules/` directory structure as per https://cursor.com/docs/context/rules
+
+### Changed
+
+- 🗑️ **Removed `.cursorrules`**: No longer generates deprecated `.cursorrules` file at project root
+- 📁 **New Main Entry Point**: Main rules now in `.cursor/rules/main.mdc` with `alwaysApply: true`
+- 📚 **Updated Documentation**: All references to `.cursorrules` replaced with `.cursor/rules/` structure
+
+### Migration Guide
+
+**For Existing Users:**
+1. Delete your existing `.cursorrules` file
+2. Regenerate rules to get new `.cursor/rules/main.mdc` structure
+3. All rule content is now in `.cursor/rules/` directory
+
+**File Structure Changes:**
+```
+Before (v3.1):
+├── .cursorrules          # Deprecated - no longer generated
+└── .cursor/rules/...
+
+After (v3.2):
+└── .cursor/
+    ├── rules/
+    │   ├── main.mdc      # New main entry point
+    │   ├── architecture.mdc
+    │   └── ...
+```
+
+### References
+
+- Official Cursor Rules Documentation: https://cursor.com/docs/context/rules
+- The `.cursorrules` file is being deprecated by Cursor in favor of `.cursor/rules/` directory
+
+---
+
+## [3.1.0] - 2025-11-19
+
+### 🎉 Major Update: Official Cursor Rules Format Support
+
+This release aligns the project with the official Cursor rules format as documented at https://cursor.com/docs/context/rules
+
+### Added
+
+- ✨ **MDC Frontmatter Support**: All `.mdc` files now include frontmatter metadata with `description`, `globs`, and `alwaysApply` fields
+- 📝 **AGENTS.md Generation**: Optional simple markdown alternative to `.cursorrules` for straightforward project instructions
+- 📚 **Official Format Compliance**: Generated rules follow official Cursor MDC format specifications
+- 🔗 **Documentation Links**: References to official Cursor documentation throughout generated files
+- ⚡ **Intelligent Rule Application**: MDC metadata enables context-aware rule application by Cursor AI
+
+### Changed
+
+- 🔄 **File Extensions**: All rule files now use `.mdc` extension (MDC format) with frontmatter metadata
+- 📋 **Deprecation Note**: `.cursorrules` file now includes deprecation information and migration guidance
+- 🎯 **Rule Metadata**: Each generated rule includes structured metadata for better AI understanding
+- 📖 **Documentation Updates**: All guides updated to reflect official Cursor rules format
+- 🏗️ **Template Structure**: Templates updated with MDC frontmatter in all generators
+
+### Improved
+
+- 🤖 **AI Context**: Better context understanding through descriptive metadata
+- 📊 **Rule Organization**: Clearer rule purpose through frontmatter descriptions
+- 🎨 **Customization**: Easier customization through structured metadata fields
+- 📚 **Documentation**: Comprehensive guides for MDC format and AGENTS.md usage
+
+### Technical Changes
+
+- Added `generateAgentsMd` option to `GenerationOptions` interface
+- Added `agentsMd` field to `GenerationResult` structure  
+- Created `agentsMdTemplate.ts` for AGENTS.md generation
+- Updated all template generators to include MDC frontmatter
+- Updated type definitions for AGENTS.md support
+
+### Migration Guide
+
+**For Existing Users:**
+1. Regenerate rules to get new `.mdc` format with metadata
+2. Optionally add `AGENTS.md` for simpler alternative format
+3. Review MDC frontmatter in each rule file
+4. Customize `globs` and `alwaysApply` fields as needed
+
+**File Format Changes:**
+- Files now include MDC frontmatter block with metadata
+- All `.mdc` files have `description`, `globs`, and `alwaysApply` fields
+
+**New Features:**
+- Set `generateAgentsMd: true` to generate `AGENTS.md`
+- Customize rule application via MDC frontmatter
+- Reference official Cursor docs for advanced usage
+
+### References
+
+- Official Cursor Rules Documentation: https://cursor.com/docs/context/rules
+- MDC Format: Frontmatter with `description`, `globs`, `alwaysApply`
+- AGENTS.md: Simple markdown alternative for basic instructions
+
+---
+
 ## [3.0.3] - 2025-11-18
 
 ### 🔧 Fixed

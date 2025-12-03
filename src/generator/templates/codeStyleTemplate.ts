@@ -4,7 +4,14 @@ export function generateCodeStyleRules(
   analysis: AnalysisResult,
   approach: string
 ): string {
-  return `# Code Style Guidelines
+  const primaryLang = analysis.dependencies.languages[0] || "code";
+  return `---
+description: Code style guidelines including naming conventions, documentation standards, and error handling patterns for ${primaryLang}
+globs:
+alwaysApply: false
+---
+
+# Code Style Guidelines
 
 ## Naming Conventions
 

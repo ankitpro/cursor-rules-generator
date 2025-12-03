@@ -8,7 +8,13 @@ export function generateMainCursorRules(
   const primaryLang = analysis.dependencies.languages[0] || "Unknown";
   const frameworks = Object.keys(analysis.dependencies.frameworks).join(", ") || "None";
 
-  return `# ${projectType} Cursor Rules
+  return `---
+description: Main project context and quick reference for AI assistance
+globs:
+alwaysApply: true
+---
+
+# ${projectType} Cursor Rules
 
 > **📁 Modular Structure:** This project uses organized cursor rules.
 > Detailed guidelines are in \`.cursor/rules/\`. This file provides quick context.
@@ -43,24 +49,24 @@ ${analysis.structure.isMonorepo ? "- **Monorepo:** Yes" : ""}
 - 🧪 QA Engineer - Testing
 - 🔒 Security Analyst - Security review
 
-**📖 Full role documentation:** \`.cursor/prompts/README.md\` and individual role files
+**📖 Full role documentation:** \`.cursor/prompts/README.mdc\` and individual role files
 
 ## 📚 Detailed Guidelines
 
 For comprehensive rules, see:
 
-- **Architecture Patterns:** \`.cursor/rules/architecture.md\`
-- **Code Style:** \`.cursor/rules/code-style.md\`
-- **Git Workflow:** \`.cursor/rules/git-workflow.md\`
-- **Testing:** \`.cursor/rules/testing.md\`
-- **Security:** \`.cursor/rules/security.md\`
+- **Architecture Patterns:** \`.cursor/rules/architecture.mdc\`
+- **Code Style:** \`.cursor/rules/code-style.mdc\`
+- **Git Workflow:** \`.cursor/rules/git-workflow.mdc\`
+- **Testing:** \`.cursor/rules/testing.mdc\`
+- **Security:** \`.cursor/rules/security.mdc\`
 
 ## 🚀 Quick Reference
 
 **Key Patterns:**
 ${generateKeyPatterns(analysis)}
 
-**Full reference:** \`.cursor/quick-reference.md\`
+**Full reference:** \`.cursor/quick-reference.mdc\`
 
 ---
 

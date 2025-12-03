@@ -1,6 +1,8 @@
 # ⚡ Quick Start Guide
 
-Get production-quality cursor rules in 5 minutes!
+Get production-quality cursor rules with official `.mdc` format in 5 minutes!
+
+**NEW in v3.1:** Generated rules now use official Cursor `.mdc` format with frontmatter metadata!
 
 ---
 
@@ -47,7 +49,7 @@ In Cursor chat:
 ```
 @cursor-rules-generator
 
-Scan my repository and generate comprehensive .cursorrules based on my actual codebase.
+Scan my repository and generate comprehensive cursor rules based on my actual codebase.
 ```
 
 ### 4️⃣ Review Analysis Report
@@ -83,34 +85,49 @@ Type your choice:
 Cursor creates:
 ```
 your-project/
-├── .cursorrules              # ✅ Main file
+├── AGENTS.md                 # ✅ Optional: Simple alternative format
 └── .cursor/
-    ├── rules/                # ✅ Detailed rules
-    │   ├── architecture.md
-    │   ├── code-style.md
-    │   ├── git-workflow.md
-    │   ├── testing.md
-    │   ├── security.md
-    │   └── performance.md
-    ├── prompts/              # ✅ Modular role system
-    │   ├── README.md
-    │   ├── documentation-writer.md
-    │   ├── frontend-developer.md
-    │   ├── backend-developer.md
-    │   ├── software-architect.md
-    │   ├── code-reviewer.md
-    │   ├── qa-engineer.md
-    │   ├── security-analyst.md
-    │   ├── performance-engineer.md
-    │   └── database-administrator.md
-    └── quick-reference.md    # ✅ Commands
+    ├── rules/                # ✅ Detailed rules with MDC frontmatter
+    │   ├── main.mdc          # ✅ Main entry point with project context
+    │   ├── architecture.mdc  # Each includes metadata:
+    │   ├── code-style.mdc    #   - description (for intelligent application)
+    │   ├── git-workflow.mdc  #   - globs (file patterns)
+    │   ├── testing.mdc       #   - alwaysApply (auto-application flag)
+    │   ├── security.mdc
+    │   └── performance.mdc
+    ├── prompts/              # ✅ Modular role system (custom extension)
+    │   ├── README.mdc
+    │   ├── documentation-writer.mdc
+    │   ├── frontend-developer.mdc
+    │   ├── backend-developer.mdc
+    │   ├── software-architect.mdc
+    │   ├── code-reviewer.mdc
+    │   ├── qa-engineer.mdc
+    │   ├── security-analyst.mdc
+    │   ├── performance-engineer.mdc
+    │   └── database-administrator.mdc
+    └── quick-reference.mdc   # ✅ Commands
 ```
+
+### ℹ️ About the Generated Files
+
+- **`.cursor/rules/main.mdc`**: Main entry point with project context
+- **`AGENTS.md`**: Simple markdown alternative (recommended for basic setups)
+- **`.cursor/rules/*.mdc`**: Official format with MDC frontmatter metadata
+- **MDC Frontmatter**: Each `.mdc` file includes:
+  ```yaml
+  ---
+  description: Context-aware description for intelligent application
+  globs:       # Optional file patterns for targeted application
+  alwaysApply: false  # Whether to apply automatically
+  ---
+  ```
 
 ### 7️⃣ Verify Generated Files
 
 ```bash
 # Check main file
-cat .cursorrules
+cat .cursor/rules/main.mdc
 
 # Check rules
 ls .cursor/rules/
@@ -136,7 +153,7 @@ Watch Cursor:
 
 ```bash
 # Add all generated files
-git add .cursorrules .cursor/
+git add .cursor/ AGENTS.md
 
 # Commit
 git commit -m "chore: Add cursor rules"
@@ -158,11 +175,13 @@ rm -rf cursor-rules-generator
 
 After completion, verify:
 
-- [ ] `.cursorrules` file exists at project root
+- [ ] `.cursor/rules/main.mdc` file exists as main entry point
+- [ ] `AGENTS.md` file exists (if you opted for it)
 - [ ] `.cursor/` directory created
-- [ ] `.cursor/rules/` contains 5-6 markdown files
-- [ ] `.cursor/prompts/README.md` and individual role files exist
-- [ ] `.cursor/quick-reference.md` exists
+- [ ] `.cursor/rules/` contains 5-6 `.mdc` files with frontmatter
+- [ ] `.cursor/prompts/README.mdc` and individual role files exist
+- [ ] `.cursor/quick-reference.mdc` exists
+- [ ] Each `.mdc` file has frontmatter with `description`, `globs`, `alwaysApply`
 - [ ] Cursor announces role when you ask it to code
 - [ ] All files committed to git
 - [ ] `cursor-rules-generator/` folder removed
@@ -173,10 +192,18 @@ After completion, verify:
 
 ### Customize Rules (Optional)
 ```bash
-# Edit specific rules
-code .cursor/rules/code-style.md
-code .cursor/rules/git-workflow.md
+# Edit specific rules (note the .mdc extension)
+code .cursor/rules/code-style.mdc
+code .cursor/rules/git-workflow.mdc
+
+# Edit simple alternative
+code AGENTS.md
 ```
+
+**Tip:** You can customize the MDC frontmatter to control rule application:
+- Set `alwaysApply: true` to apply rule to all files
+- Add `globs: ["*.ts", "*.tsx"]` to apply only to TypeScript files
+- Update `description` to improve AI context understanding
 
 ### Share with Team
 ```bash
@@ -193,7 +220,7 @@ cp .cursor/rules/code-style.md ~/team-standards/
 touch .cursor/rules/deployment.md
 touch .cursor/rules/monitoring.md
 
-# Update main .cursorrules to reference them
+# Update main.mdc to reference them
 ```
 
 ---
@@ -212,7 +239,7 @@ touch .cursor/rules/monitoring.md
 ### Issue: Want to regenerate
 **Solution:** 
 ```bash
-rm -rf .cursorrules .cursor/
+rm -rf .cursor/ AGENTS.md
 # Re-run generation prompt
 ```
 

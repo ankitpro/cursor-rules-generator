@@ -1,0 +1,76 @@
+---
+description: Main project context and coding guidelines for cursor-rules-generator MCP server
+globs:
+alwaysApply: true
+---
+
+# Cursor Rules Generator - Development Guidelines
+
+> **📁 Modular Structure:** This project uses the official Cursor `.cursor/rules/` format.
+
+## 🎯 Quick Context
+
+**Project Type:** MCP (Model Context Protocol) Server
+**Primary Language:** TypeScript
+**Framework:** Node.js with MCP SDK
+**Purpose:** Automatically generate cursor rules by analyzing codebases
+
+## 📦 Tech Stack
+
+- **Runtime:** Node.js 18+
+- **Language:** TypeScript 5.x
+- **MCP SDK:** @modelcontextprotocol/sdk
+- **File Operations:** Node.js fs/promises
+- **Git Integration:** simple-git
+- **Pattern Matching:** glob
+
+## 🏗️ Project Structure
+
+```
+src/
+├── index.ts              # MCP server entry point
+├── types.ts              # TypeScript interfaces
+├── analyzers/            # Codebase analysis modules
+│   ├── dependencies.ts   # Package/dependency analysis
+│   ├── structure.ts      # Project structure analysis
+│   ├── codePatterns.ts   # Code pattern detection
+│   ├── gitWorkflow.ts    # Git workflow analysis
+│   ├── environment.ts    # Environment config analysis
+│   └── testing.ts        # Testing setup analysis
+├── generator/            # Rules generation
+│   ├── cursorRulesGenerator.ts
+│   └── templates/        # Template generators
+└── templates/            # Pre-built templates library
+    ├── library/          # Template definitions
+    └── loader.ts         # Template loading utilities
+```
+
+## 📝 Code Style
+
+- Use **camelCase** for functions and variables
+- Use **PascalCase** for types and interfaces
+- Use **async/await** for asynchronous operations
+- Export functions using named exports
+- Use ES modules (`.js` extensions in imports)
+
+## 🔧 Key Patterns
+
+1. **Analysis functions** return typed interfaces from `types.ts`
+2. **Template generators** return formatted strings with MDC frontmatter
+3. **MCP tools** follow the SDK patterns for request/response handling
+4. **File operations** use `fs/promises` for async file I/O
+
+## 🚀 Development Commands
+
+```bash
+npm run build     # Compile TypeScript
+npm run dev       # Watch mode
+npm start         # Run compiled server
+```
+
+## ✅ Before Committing
+
+1. Run `npm run build` to ensure no TypeScript errors
+2. Test changes with the MCP inspector or Cursor
+3. Update CHANGELOG.md for significant changes
+4. Follow conventional commits format

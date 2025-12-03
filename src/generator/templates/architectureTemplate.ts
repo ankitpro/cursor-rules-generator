@@ -4,7 +4,13 @@ export function generateArchitectureRules(
   analysis: AnalysisResult,
   approach: string
 ): string {
-  return `# Architecture Patterns
+  return `---
+description: Architecture patterns and project structure guidelines for ${analysis.structure.projectType}
+globs:
+alwaysApply: false
+---
+
+# Architecture Patterns
 
 ## Project Structure
 
