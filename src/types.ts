@@ -105,12 +105,14 @@ export interface GenerationOptions {
   projectPath: string;
   hybridChoices?: Record<string, "current" | "best_practice">;
   template?: TemplateSelectionOptions;
+  generateAgentsMd?: boolean; // Generate AGENTS.md as simple alternative to .cursor/rules/
 }
 
 export interface GenerationResult {
   filesGenerated: string[];
   structure: {
     main: string;
+    agentsMd?: string;
     rulesDir: string;
     promptsDir: string;
     files: {

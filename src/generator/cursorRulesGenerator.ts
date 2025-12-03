@@ -8,6 +8,7 @@ import { generateCodeStyleRules } from "./templates/codeStyleTemplate.js";
 import { generateGitWorkflowRules } from "./templates/gitWorkflowTemplate.js";
 import { generateTestingRules } from "./templates/testingTemplate.js";
 import { generateSecurityRules } from "./templates/securityTemplate.js";
+import { generateAgentsMd } from "./templates/agentsMdTemplate.js";
 import { getTemplate } from "../templates/index.js";
 import { mergeTemplateWithAnalysis } from "../templates/loader.js";
 import {
@@ -30,7 +31,7 @@ export async function generateCursorRules(
   analysis: AnalysisResult,
   options: GenerationOptions
 ): Promise<GenerationResult> {
-  const { projectPath, approach, template: templateOptions } = options;
+  const { projectPath, approach, template: templateOptions, generateAgentsMd: shouldGenerateAgentsMd } = options;
 
   // Load template if specified
   let template = null;
@@ -64,10 +65,23 @@ export async function generateCursorRules(
   // Generate all files (use merged content if available, otherwise generate from analysis)
   const files = [
     {
-      path: join(projectPath, ".cursorrules"),
+      path: join(rulesDir, "main.mdc"),
       content: mergedContent?.mainRules || generateMainCursorRules(analysis, approach),
-      name: ".cursorrules",
+      name: ".cursor/rules/main.mdc",
     },
+  ];
+
+  // Optionally generate AGENTS.md as simpler alternative
+  if (shouldGenerateAgentsMd) {
+    files.push({
+      path: join(projectPath, "AGENTS.md"),
+      content: generateAgentsMd(analysis, approach),
+      name: "AGENTS.md",
+    });
+  }
+
+  // Add rule files
+  files.push(
     {
       path: join(rulesDir, "architecture.mdc"),
       content: mergedContent?.architectureRules || generateArchitectureRules(analysis, approach),
@@ -148,8 +162,8 @@ export async function generateCursorRules(
       path: join(cursorDir, "quick-reference.mdc"),
       content: generateQuickReference(analysis),
       name: ".cursor/quick-reference.mdc",
-    },
-  ];
+    }
+  );
 
   // Add project-specific role files if needed
   if (analysis.structure.isMonorepo) {
@@ -175,7 +189,8 @@ export async function generateCursorRules(
   }
 
   const structure = {
-    main: ".cursorrules",
+    main: ".cursor/rules/main.mdc",
+    ...(shouldGenerateAgentsMd && { agentsMd: "AGENTS.md" }),
     rulesDir: ".cursor/rules",
     promptsDir: ".cursor/prompts",
     files: files.map((f) => ({

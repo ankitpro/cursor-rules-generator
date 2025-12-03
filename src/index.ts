@@ -124,7 +124,7 @@ const tools: Tool[] = [
   {
     name: "generate_cursor_rules",
     description:
-      "Generate modular .cursorrules files based on project analysis. Optionally start with a pre-built template. Run analyze_project first to get analysis data, or this will run it automatically.",
+      "Generate modular cursor rules in .cursor/rules/ directory based on project analysis. Optionally start with a pre-built template. Run analyze_project first to get analysis data, or this will run it automatically.",
     inputSchema: {
       type: "object",
       properties: {
@@ -249,7 +249,7 @@ server.setRequestHandler(ListPromptsRequestSchema, async () => {
       {
         name: "generate-cursor-rules",
         description:
-          "Generate comprehensive .cursorrules for a project based on automated analysis",
+          "Generate comprehensive cursor rules in .cursor/rules/ directory for a project based on automated analysis",
         arguments: [
           {
             name: "projectPath",
@@ -302,7 +302,7 @@ Please follow these steps:
    - Option B: Apply best practices
    - Option C: Hybrid approach
 4. Once I choose, use the generate_cursor_rules tool with the appropriate approach
-5. Generate the modular .cursorrules structure as described in the template
+5. Generate the modular cursor rules structure in .cursor/rules/ as described in the template
 
 Follow all instructions in the Generator Template resource that has been loaded.`,
             },

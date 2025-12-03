@@ -1,8 +1,8 @@
 # Cursor Rules Generator
 
-**Automatically generate production-quality, modular `.cursorrules` for any project**
+**Automatically generate production-quality, modular cursor rules in `.cursor/rules/` format for any project**
 
-[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-3.2.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 > _"Empowering developers, one cursor rule at a time"_
@@ -30,30 +30,31 @@ Instead of writing rules manually or using generic templates, this system:
 - **Zero placeholders** - All values from actual codebase analysis
 
 ### 📁 Modular Structure
-Generates organized structure instead of single massive file:
+Generates organized structure using official Cursor `.mdc` format:
 ```
 your-project/
-├── .cursorrules              # Main entry point (~150 lines)
+├── AGENTS.md                 # Optional: Simple markdown alternative
 └── .cursor/
-    ├── rules/                # Topic-specific detailed rules
-    │   ├── architecture.md
-    │   ├── code-style.md
-    │   ├── git-workflow.md
-    │   ├── testing.md
-    │   ├── security.md
-    │   └── performance.md
+    ├── rules/                # Topic-specific detailed rules with MDC frontmatter
+    │   ├── main.mdc          # Main entry point with project context
+    │   ├── architecture.mdc
+    │   ├── code-style.mdc
+    │   ├── git-workflow.mdc
+    │   ├── testing.mdc
+    │   ├── security.mdc
+    │   └── performance.mdc
     ├── prompts/              # Modular role-based system
-    │   ├── README.md         # Role announcement guide
-    │   ├── documentation-writer.md
-    │   ├── frontend-developer.md
-    │   ├── backend-developer.md
-    │   ├── software-architect.md
-    │   ├── code-reviewer.md
-    │   ├── qa-engineer.md
-    │   ├── security-analyst.md
-    │   ├── performance-engineer.md
-    │   └── database-administrator.md
-    └── quick-reference.md    # Commands & patterns
+    │   ├── README.mdc        # Role announcement guide
+    │   ├── documentation-writer.mdc
+    │   ├── frontend-developer.mdc
+    │   ├── backend-developer.mdc
+    │   ├── software-architect.mdc
+    │   ├── code-reviewer.mdc
+    │   ├── qa-engineer.mdc
+    │   ├── security-analyst.mdc
+    │   ├── performance-engineer.mdc
+    │   └── database-administrator.mdc
+    └── quick-reference.mdc   # Commands & patterns
 ```
 
 ### 🌍 Universal Support
@@ -91,17 +92,17 @@ cd /path/to/your/project
 ```
 @cursor-rules-generator
 
-Scan my repository and generate comprehensive .cursorrules based on my actual codebase.
+Scan my repository and generate comprehensive cursor rules based on my actual codebase.
 ```
 
 ### 3. Review and Commit
 
 ```bash
 # Review generated structure
-ls -la .cursorrules .cursor/
+ls -la .cursor/
 
 # Commit everything
-git add .cursorrules .cursor/
+git add .cursor/ AGENTS.md
 git commit -m "chore: Add cursor rules"
 
 # Remove or archive generator folder
@@ -164,10 +165,11 @@ C) Hybrid approach (choose per topic)
 ### Step 3: Modular Generation
 
 Based on your choice, Cursor creates:
-- Main `.cursorrules` with quick context
+- `.cursor/rules/main.mdc` with quick context
 - `.cursor/rules/` with detailed topic files
 - `.cursor/prompts/` with role-based system
-- `.cursor/quick-reference.md` with commands
+- `.cursor/quick-reference.mdc` with commands
+- Optional `AGENTS.md` for simple setups
 
 ---
 

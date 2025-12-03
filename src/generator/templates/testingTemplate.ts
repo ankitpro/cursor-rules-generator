@@ -4,7 +4,14 @@ export function generateTestingRules(
   analysis: AnalysisResult,
   approach: string
 ): string {
-  return `# Testing Guidelines
+  const framework = analysis.testing.framework || "testing";
+  return `---
+description: Testing guidelines and patterns for ${framework} including test organization and coverage requirements
+globs:
+alwaysApply: false
+---
+
+# Testing Guidelines
 
 ## Test Framework
 

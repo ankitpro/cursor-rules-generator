@@ -9,7 +9,7 @@ This directory contains comprehensive documentation for the Cursor Rules Generat
 
 This file contains:
 - Instructions for analyzing different project types
-- Templates for generating `.cursorrules` files
+- Templates for generating cursor rules in `.cursor/rules/` format
 - Language-specific patterns (JavaScript, Python, Go, Rust, etc.)
 - Framework-specific patterns (React, Vue, Django, FastAPI, etc.)
 - Best practices and coding conventions

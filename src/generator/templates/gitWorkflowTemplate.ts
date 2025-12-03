@@ -4,7 +4,13 @@ export function generateGitWorkflowRules(
   analysis: AnalysisResult,
   approach: string
 ): string {
-  return `# Git Workflow
+  return `---
+description: Git workflow guidelines including branch strategy, commit message format, and pull request process
+globs:
+alwaysApply: false
+---
+
+# Git Workflow
 
 ## Branch Strategy
 

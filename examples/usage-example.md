@@ -40,26 +40,27 @@ This document provides practical examples of using the Cursor Rules Generator MC
 **Generated Files:**
 ```
 my-react-app/
-├── .cursorrules
+├── AGENTS.md                 # Optional: Simple alternative
 └── .cursor/
     ├── rules/
-    │   ├── architecture.md
-    │   ├── code-style.md
-    │   ├── git-workflow.md
-    │   ├── testing.md
-    │   └── security.md
+    │   ├── main.mdc          # Main entry point
+    │   ├── architecture.mdc
+    │   ├── code-style.mdc
+    │   ├── git-workflow.mdc
+    │   ├── testing.mdc
+    │   └── security.mdc
     ├── prompts/              # Modular role system
-    │   ├── README.md
-    │   ├── documentation-writer.md
-    │   ├── frontend-developer.md
-    │   ├── backend-developer.md
-    │   ├── software-architect.md
-    │   ├── code-reviewer.md
-    │   ├── qa-engineer.md
-    │   ├── security-analyst.md
-    │   ├── performance-engineer.md
-    │   └── database-administrator.md
-    └── quick-reference.md
+    │   ├── README.mdc
+    │   ├── documentation-writer.mdc
+    │   ├── frontend-developer.mdc
+    │   ├── backend-developer.mdc
+    │   ├── software-architect.mdc
+    │   ├── code-reviewer.mdc
+    │   ├── qa-engineer.mdc
+    │   ├── security-analyst.mdc
+    │   ├── performance-engineer.mdc
+    │   └── database-administrator.mdc
+    └── quick-reference.mdc
 ```
 
 ## Example 3: Using Prompts
@@ -213,13 +214,13 @@ Cursor: [Analyzes improvements, applies best practices]
 User: "What are the coding standards for this project?"
 Cursor: "Let me check the cursor rules..."
 
-[Cursor reads .cursorrules and .cursor/rules/]
+[Cursor reads .cursor/rules/]
 
 Cursor: "Here are the key standards:
 - Functions: camelCase (85% consistency)
 - Testing: Jest with React Testing Library
 - Git: Conventional Commits
-- See .cursor/quick-reference.md for commands"
+- See .cursor/quick-reference.mdc for commands"
 ```
 
 **Generates Code Following Standards:**

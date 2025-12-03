@@ -10,7 +10,7 @@
       "env": {
         "TEMPLATE_REPO_URL": "https://github.com/ankitpro/cursor-rules-generator.git"
       },
-      "description": "Generates comprehensive .cursorrules for any project with automated analysis"
+      "description": "Generates comprehensive cursor rules in .cursor/rules/ format for any project with automated analysis"
     }
   }
 }

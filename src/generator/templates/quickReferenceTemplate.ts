@@ -1,7 +1,13 @@
 import { AnalysisResult } from "../../types.js";
 
 export function generateQuickReference(analysis: AnalysisResult): string {
-  return `# Quick Reference
+  return `---
+description: Quick reference for common commands, file locations, and key patterns in this project
+globs:
+alwaysApply: false
+---
+
+# Quick Reference
 
 ## Common Commands
 

@@ -1,23 +1,27 @@
 # Cursor Rules Generator
 
-**Automatically generate production-quality, modular `.cursorrules` for any project**
+**Automatically generate production-quality, modular cursor rules with `.mdc` format and AGENTS.md support**
 
-[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-3.2.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-> _"Empowering developers, one cursor rule at a time"_
+> _"Empowering developers with official Cursor rules format"_
 
 ---
 
 ## 🎯 What is This?
 
-**Cursor Rules Generator** is an intelligent system that automatically analyzes your codebase and generates comprehensive, organized cursor rules with zero manual input.
+**Cursor Rules Generator** is an intelligent system that automatically analyzes your codebase and generates comprehensive, organized cursor rules using the official Cursor format with zero manual input.
+
+**NEW in v3.1:** Full support for the official Cursor rules format with `.mdc` (MDC) frontmatter metadata and `AGENTS.md` alternative format!
 
 Instead of writing rules manually or using generic templates, this system:
 - 🔍 **Scans your repository** - Dependencies, structure, code patterns, git workflow, environment variables
 - 📊 **Analyzes everything** - Compares your patterns against best practices
 - 🎯 **Gives you options** - Use current patterns, adopt best practices, or hybrid
-- 📁 **Generates modular structure** - Organized files instead of one massive document
+- 📁 **Generates modular structure** - Organized files with official `.mdc` format
+- ✨ **MDC Frontmatter** - Each rule includes metadata for intelligent application
+- 📝 **AGENTS.md Support** - Optional simple markdown alternative
 - 🎭 **Includes role-based system** - Cursor automatically adopts appropriate expert roles
 
 ---
@@ -29,20 +33,21 @@ Instead of writing rules manually or using generic templates, this system:
 - **Intelligent scanning** - Detects all technologies, frameworks, patterns
 - **Zero placeholders** - All values from actual codebase analysis
 
-### 📁 Modular Structure
-Generates organized structure instead of single massive file:
+### 📁 Modular Structure with Official Format
+Generates organized structure using official Cursor `.mdc` format:
 ```
 your-project/
-├── .cursorrules              # Main entry point (~150 lines)
+├── AGENTS.md                 # Optional: Simple markdown alternative
 └── .cursor/
-    ├── rules/                # Topic-specific detailed rules
-    │   ├── architecture.mdc
-    │   ├── code-style.mdc
-    │   ├── git-workflow.mdc
-    │   ├── testing.mdc
+    ├── rules/                # Topic-specific rules with MDC frontmatter
+    │   ├── main.mdc          # Main entry point with project context
+    │   ├── architecture.mdc  # Each includes metadata for intelligent application
+    │   ├── code-style.mdc    # description: Applied based on context
+    │   ├── git-workflow.mdc  # globs: File patterns (optional)
+    │   ├── testing.mdc       # alwaysApply: Auto-application flag
     │   ├── security.mdc
     │   └── performance.mdc
-    ├── prompts/              # Modular role-based system
+    ├── prompts/              # Modular role-based system (custom extension)
     │   ├── README.mdc        # Role announcement guide
     │   ├── documentation-writer.mdc
     │   ├── frontend-developer.mdc
@@ -55,6 +60,15 @@ your-project/
     │   └── database-administrator.mdc
     └── quick-reference.mdc   # Commands & patterns
 ```
+
+### 🆕 What's New in v3.2
+
+- ✨ **Official MDC Format**: All `.mdc` files now include frontmatter metadata
+- 📝 **AGENTS.md Support**: Optional simple markdown alternative
+- 🗑️ **Removed Deprecated `.cursorrules`**: Now uses `.cursor/rules/main.mdc` as main entry
+- 📚 **Updated Documentation**: Aligned with official Cursor documentation
+- 🎯 **Rule Metadata**: Each rule includes `description`, `globs`, and `alwaysApply` fields
+- 🔗 **Official Links**: References to https://cursor.com/docs/context/rules
 
 ### 🌍 Universal Support
 - **Languages:** JavaScript/TypeScript, Python, Go, Rust, Ruby, Java, PHP, Dart, Elixir, Swift
@@ -157,10 +171,10 @@ cd /path/to/your/project
 # In Cursor:
 @cursor-rules-generator
 
-Scan my repository and generate comprehensive .cursorrules based on my actual codebase.
+Scan my repository and generate comprehensive cursor rules based on my actual codebase.
 
 # Commit and cleanup
-git add .cursorrules .cursor/
+git add .cursor/ AGENTS.md
 git commit -m "chore: Add cursor rules"
 rm -rf cursor-rules-generator
 ```
@@ -226,10 +240,11 @@ C) Hybrid approach (choose per topic)
 ### Step 3: Modular Generation
 
 Based on your choice, Cursor creates:
-- Main `.cursorrules` with quick context
+- `.cursor/rules/main.mdc` with quick context (main entry point)
 - `.cursor/rules/` with detailed topic files
 - `.cursor/prompts/` with individual role files (each role has its own file for easy customization!)
 - `.cursor/quick-reference.mdc` with commands
+- Optional `AGENTS.md` for simple setups
 
 ---
 
@@ -386,7 +401,7 @@ cp -r cursor-rules-generator /path/to/your/project/
 
 # Open in Cursor:
 @cursor-rules-generator
-Scan my repository and generate comprehensive .cursorrules
+Scan my repository and generate comprehensive cursor rules
 ```
 
 **Transform your development workflow with intelligent, automated cursor rules!** 🎊

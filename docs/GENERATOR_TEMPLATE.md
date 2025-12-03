@@ -8,35 +8,37 @@
 > 
 > ## 🏗️ MODULAR STRUCTURE REQUIREMENT
 > 
-> **You MUST generate a modular structure, NOT a single monolithic file:**
+> **You MUST generate a modular structure in `.cursor/rules/` directory:**
 > 
 > ```
 > project-root/
-> ├── .cursorrules              # Main entry point (lightweight, ~150 lines)
+> ├── AGENTS.md                 # Optional: Simple markdown alternative
 > └── .cursor/                  # Organized rules directory
->     ├── rules/                # Topic-specific detailed rules
+>     ├── rules/                # Topic-specific detailed rules with MDC format
+>     │   ├── main.mdc          # Main entry point (lightweight, ~150 lines)
+>     │   └── ...               # Other rule files
 >     ├── prompts/              # System prompts (role-based)
->     └── quick-reference.md    # Commands and patterns
+>     └── quick-reference.mdc   # Commands and patterns
 > ```
 > 
-> **DO NOT create a single massive `.cursorrules` file.**
+> **DO NOT create a deprecated `.cursorrules` file at project root.**
 > 
 > ## Generation Process
 > 
-> When asked to generate `.cursorrules`, follow these steps:
+> When asked to generate cursor rules, follow these steps:
 > 1. Analyze the user's project structure and tech stack (automated scanning)
 > 2. Generate comprehensive analysis report
 > 3. Wait for user choice (Option A/B/C)
 > 4. Create `.cursor/` directory structure
-> 5. Generate all detailed rule files
-> 6. Generate main `.cursorrules` with references
+> 5. Generate all detailed rule files in `.cursor/rules/`
+> 6. Generate main `.cursor/rules/main.mdc` with references
 > 7. After generation, DO NOT reference these files again unless explicitly asked
 
 ---
 
 ## 📋 Generation Instructions for Cursor
 
-When a user asks you to generate `.cursorrules` using this template:
+When a user asks you to generate cursor rules using this template:
 
 ### Step 1: Automated Repository Analysis
 
@@ -308,9 +310,9 @@ Found X variables in [.env.example]:
 Please respond: A, B, or C
 ```
 
-### Step 3: Generate .cursorrules Based on User Choice
+### Step 3: Generate Cursor Rules Based on User Choice
 
-After user selects option (A, B, or C), generate `.cursorrules` accordingly.
+After user selects option (A, B, or C), generate cursor rules in `.cursor/rules/` accordingly.
 
 ### Step 4: Select Appropriate Sections
 
@@ -368,32 +370,33 @@ Choose: [Current | Best Practice | Custom]
 
 ```
 project-root/
-├── .cursorrules                          # Main entry point (create this)
+├── AGENTS.md                             # Optional: Simple markdown alternative
 └── .cursor/                              # Rules directory (create this)
     ├── rules/                            # Detailed rules (create this folder)
-    │   ├── architecture.md               # Architecture patterns
-    │   ├── code-style.md                 # Code style guidelines
-    │   ├── git-workflow.md               # Git conventions
-    │   ├── testing.md                    # Testing requirements
-    │   ├── security.md                   # Security best practices
-    │   └── performance.md                # Performance optimization (optional)
+    │   ├── main.mdc                      # Main entry point (create this)
+    │   ├── architecture.mdc              # Architecture patterns
+    │   ├── code-style.mdc                # Code style guidelines
+    │   ├── git-workflow.mdc              # Git conventions
+    │   ├── testing.mdc                   # Testing requirements
+    │   ├── security.mdc                  # Security best practices
+    │   └── performance.mdc               # Performance optimization (optional)
     ├── prompts/                          # Modular role prompts (create this folder)
-    │   ├── README.md                     # Role announcement guide
-    │   ├── documentation-writer.md
-    │   ├── frontend-developer.md
-    │   ├── backend-developer.md
-    │   ├── software-architect.md
-    │   ├── code-reviewer.md
-    │   ├── qa-engineer.md
-    │   ├── security-analyst.md
-    │   ├── performance-engineer.md
-    │   └── database-administrator.md
-    └── quick-reference.md                # Commands, paths, patterns
+    │   ├── README.mdc                    # Role announcement guide
+    │   ├── documentation-writer.mdc
+    │   ├── frontend-developer.mdc
+    │   ├── backend-developer.mdc
+    │   ├── software-architect.mdc
+    │   ├── code-reviewer.mdc
+    │   ├── qa-engineer.mdc
+    │   ├── security-analyst.mdc
+    │   ├── performance-engineer.mdc
+    │   └── database-administrator.mdc
+    └── quick-reference.mdc               # Commands, paths, patterns
 ```
 
-#### 6.1 Main `.cursorrules` File (Root)
+#### 6.1 Main `.cursor/rules/main.mdc` File
 
-**Purpose:** Lightweight entry point that Cursor always reads
+**Purpose:** Lightweight entry point that Cursor always reads (with `alwaysApply: true`)
 **Length:** ~100-150 lines
 **Content:**
 
@@ -580,14 +583,14 @@ Create files in this order:
 1. Create `.cursor/` directory
 2. Create `.cursor/rules/` subdirectory
 3. Create `.cursor/prompts/` subdirectory
-4. Generate all detailed files first (`.cursor/rules/*.md`, `.cursor/prompts/*.md`, `.cursor/quick-reference.md`)
-5. Generate main `.cursorrules` last (with references to all created files)
+4. Generate all detailed files first (`.cursor/rules/*.mdc`, `.cursor/prompts/*.mdc`, `.cursor/quick-reference.mdc`)
+5. Generate main `.cursor/rules/main.mdc` last (with references to all created files)
 
 ---
 
 ## 🎭 Role-Based System (ALWAYS INCLUDE)
 
-> **This is the core of the cursor rules system and should be included in EVERY generated `.cursorrules` file.**
+> **This is the core of the cursor rules system and should be included in EVERY generated cursor rules file.**
 
 ```markdown
 ## 🎭 Role-Based System Prompts
@@ -1483,7 +1486,7 @@ CACHE_TTL=3600
 
 ## 🎯 Generation Checklist for Cursor
 
-Before generating `.cursorrules`, ensure you have:
+Before generating cursor rules, ensure you have:
 
 **✅ Analysis Complete:**
 - [ ] Scanned dependency files (package.json, requirements.txt, etc.)
@@ -1505,18 +1508,18 @@ Before generating `.cursorrules`, ensure you have:
 - [ ] Created `.cursor/` directory
 - [ ] Created `.cursor/rules/` subdirectory
 - [ ] Created `.cursor/prompts/` subdirectory
-- [ ] Generated `.cursorrules` main file (~100-150 lines)
-- [ ] Generated `.cursor/rules/architecture.md`
-- [ ] Generated `.cursor/rules/code-style.md`
-- [ ] Generated `.cursor/rules/git-workflow.md`
-- [ ] Generated `.cursor/rules/testing.md`
-- [ ] Generated `.cursor/rules/security.md`
-- [ ] Generated `.cursor/rules/performance.md` (if applicable)
-- [ ] Generated `.cursor/prompts/README.md` and individual role files (REQUIRED)
-- [ ] Generated `.cursor/quick-reference.md`
+- [ ] Generated `.cursor/rules/main.mdc` main file (~100-150 lines)
+- [ ] Generated `.cursor/rules/architecture.mdc`
+- [ ] Generated `.cursor/rules/code-style.mdc`
+- [ ] Generated `.cursor/rules/git-workflow.mdc`
+- [ ] Generated `.cursor/rules/testing.mdc`
+- [ ] Generated `.cursor/rules/security.mdc`
+- [ ] Generated `.cursor/rules/performance.mdc` (if applicable)
+- [ ] Generated `.cursor/prompts/README.mdc` and individual role files (REQUIRED)
+- [ ] Generated `.cursor/quick-reference.mdc`
 
 **✅ Content Quality:**
-- [ ] Main `.cursorrules` references all detailed files
+- [ ] Main `.cursor/rules/main.mdc` references all detailed files
 - [ ] Each file focuses on one topic (no overlap)
 - [ ] All based on actual detected technologies and patterns
 - [ ] Role-based system included in both main file and prompts directory
@@ -1539,7 +1542,7 @@ Before generating `.cursorrules`, ensure you have:
 
 ## 📝 Example Output Structure
 
-**Note:** This is a structural example only. YOUR generated `.cursorrules` must be based on ACTUAL repository analysis, not this template.
+**Note:** This is a structural example only. YOUR generated cursor rules must be based on ACTUAL repository analysis, not this template.
 
 ```markdown
 # [Detected Project Name] Cursor Rules
@@ -1663,7 +1666,7 @@ Before generating `.cursorrules`, ensure you have:
 
 ## ✅ Post-Generation Actions
 
-After generating `.cursorrules`:
+After generating cursor rules:
 
 1. **Verify completeness** - All required sections included
 2. **Check accuracy** - Tech stack correctly identified from analysis
@@ -1679,27 +1682,28 @@ After generating `.cursorrules`:
 📁 **Structure Created:**
 \```
 your-project/
-├── .cursorrules                    # ✅ Main entry point (150 lines)
+├── AGENTS.md                       # ✅ Optional: Simple alternative
 └── .cursor/
     ├── rules/
-    │   ├── architecture.md         # ✅ [X] lines
-    │   ├── code-style.md           # ✅ [Y] lines
-    │   ├── git-workflow.md         # ✅ [Z] lines
-    │   ├── testing.md              # ✅ [A] lines
-    │   ├── security.md             # ✅ [B] lines
-    │   └── performance.md          # ✅ [C] lines [if included]
+    │   ├── main.mdc                # ✅ Main entry point (150 lines)
+    │   ├── architecture.mdc        # ✅ [X] lines
+    │   ├── code-style.mdc          # ✅ [Y] lines
+    │   ├── git-workflow.mdc        # ✅ [Z] lines
+    │   ├── testing.mdc             # ✅ [A] lines
+    │   ├── security.mdc            # ✅ [B] lines
+    │   └── performance.mdc         # ✅ [C] lines [if included]
     ├── prompts/                    # ✅ Modular role files
-    │   ├── README.md
-    │   ├── documentation-writer.md
-    │   ├── frontend-developer.md
-    │   ├── backend-developer.md
-    │   ├── software-architect.md
-    │   ├── code-reviewer.md
-    │   ├── qa-engineer.md
-    │   ├── security-analyst.md
-    │   ├── performance-engineer.md
-    │   └── database-administrator.md
-    └── quick-reference.md          # ✅ [E] lines
+    │   ├── README.mdc
+    │   ├── documentation-writer.mdc
+    │   ├── frontend-developer.mdc
+    │   ├── backend-developer.mdc
+    │   ├── software-architect.mdc
+    │   ├── code-reviewer.mdc
+    │   ├── qa-engineer.mdc
+    │   ├── security-analyst.mdc
+    │   ├── performance-engineer.mdc
+    │   └── database-administrator.mdc
+    └── quick-reference.mdc         # ✅ [E] lines
 
 Total: [X+Y+Z+A+B+C+D+E] lines across [#] files
 \```
@@ -1725,7 +1729,7 @@ Total: [X+Y+Z+A+B+C+D+E] lines across [#] files
 3. **Test it** - ask me to perform tasks and verify I follow the rules
 4. **Commit everything:**
    \```bash
-   git add .cursorrules .cursor/
+   git add .cursor/ AGENTS.md
    git commit -m "chore: Add modular cursor rules"
    \```
 5. **Archive cursor-initialization/** - you won't need it again
@@ -1734,7 +1738,7 @@ Total: [X+Y+Z+A+B+C+D+E] lines across [#] files
 - I'll announce my role at the start of EVERY response
 - I'll follow patterns from `.cursor/rules/` automatically
 - I'll reference specific rule files when relevant
-- Main `.cursorrules` loads first for quick context
+- Main `.cursor/rules/main.mdc` loads first for quick context
 - Detailed files load on-demand for specific tasks
 
 📚 **Modular Benefits:**
@@ -1746,16 +1750,16 @@ Total: [X+Y+Z+A+B+C+D+E] lines across [#] files
 
 **Try it now:** Ask me to create a new component/function and watch me:
 1. Announce my adopted role
-2. Reference `.cursor/rules/architecture.md` for patterns
-3. Follow `.cursor/rules/code-style.md` for naming
+2. Reference `.cursor/rules/architecture.mdc` for patterns
+3. Follow `.cursor/rules/code-style.mdc` for naming
 4. Apply your project's specific conventions!
 ```
 
 ---
 
-**Version:** 2.0.0  
-**Last Updated:** October 30, 2025  
+**Version:** 3.2.0  
+**Last Updated:** December 3, 2025  
 **Source:** Production Best Practices  
-**Major Change:** Modular structure with `.cursor/` directory organization  
-**Compatibility:** All Cursor versions with .cursorrules support
+**Major Change:** Official `.cursor/rules/` directory format (deprecated `.cursorrules`)  
+**Compatibility:** All Cursor versions with `.cursor/rules/` support
 

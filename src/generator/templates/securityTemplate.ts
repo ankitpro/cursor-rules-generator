@@ -4,7 +4,13 @@ export function generateSecurityRules(
   analysis: AnalysisResult,
   approach: string
 ): string {
-  return `# Security Best Practices
+  return `---
+description: Security best practices for authentication, input validation, API security, and data protection
+globs:
+alwaysApply: false
+---
+
+# Security Best Practices
 
 ## Environment Variables
 
