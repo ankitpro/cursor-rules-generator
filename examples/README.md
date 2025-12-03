@@ -36,7 +36,7 @@ Copy this configuration to your `~/.cursor/mcp.json` file to get started!
 1. Copy the MCP configuration from `cursor-mcp-config.json` to `~/.cursor/mcp.json`
 2. Restart Cursor IDE
 3. In any project, ask Cursor: "Generate cursor rules for this project"
-4. Review the generated files in `.cursorrules` and `.cursor/` directory
+4. Review the generated files in `.cursor/rules/` directory
 
 ## Need More Help?
 
