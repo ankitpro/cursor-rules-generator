@@ -2,7 +2,7 @@
 
 **Automatically generate production-quality, modular cursor rules with `.mdc` format and AGENTS.md support**
 
-[![Version](https://img.shields.io/badge/version-3.2.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-3.3.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 > _"Empowering developers with official Cursor rules format"_
@@ -34,10 +34,18 @@ Instead of writing rules manually or using generic templates, this system:
 - **Zero placeholders** - All values from actual codebase analysis
 
 ### 📁 Modular Structure with Official Format
-Generates organized structure using official Cursor `.mdc` format:
+Generates organized structure using official Cursor `.mdc` format with **nested rules**:
 ```
 your-project/
 ├── AGENTS.md                 # Optional: Simple markdown alternative
+├── frontend/                 # 🌳 NEW: Nested rules for frontend
+│   └── .cursor/
+│       └── rules/
+│           └── main.mdc      # Frontend-specific rules
+├── backend/                  # 🌳 NEW: Nested rules for backend
+│   └── .cursor/
+│       └── rules/
+│           └── main.mdc      # Backend-specific rules
 └── .cursor/
     ├── rules/                # Topic-specific rules with MDC frontmatter
     │   ├── main.mdc          # Main entry point with project context
@@ -61,7 +69,24 @@ your-project/
     └── quick-reference.mdc   # Commands & patterns
 ```
 
-### 🆕 What's New in v3.2
+**🌳 Nested Rules:** Automatically creates subdirectory-specific rules that apply when working in:
+- `frontend/` - UI components, state management, styling
+- `backend/` - API logic, database, authentication
+- `api/` - Endpoint definitions and validation
+- `services/` - Business logic layer
+- `packages/` - Monorepo package development
+- `apps/` - Monorepo applications
+
+Learn more: https://cursor.com/docs/context/rules
+
+### 🆕 What's New in v3.3
+
+- 🌳 **Nested Rules Support**: Automatically generates subdirectory-specific rules for better organization
+- 📁 **Smart Directory Detection**: Identifies frontend/, backend/, api/, and other key directories
+- 🎯 **Context-Aware Rules**: Rules automatically apply when working in specific directories
+- 📚 **Enhanced Structure**: Follows official Cursor nested rules pattern
+
+### Previous Updates (v3.2)
 
 - ✨ **Official MDC Format**: All `.mdc` files now include frontmatter metadata
 - 📝 **AGENTS.md Support**: Optional simple markdown alternative
@@ -415,7 +440,7 @@ Scan my repository and generate comprehensive cursor rules
 
 ---
 
-**Version:** 2.0.0  
-**Last Updated:** November 10, 2025  
+**Version:** 3.3.0  
+**Last Updated:** December 10, 2024  
 **Status:** ✅ Production Ready
 

@@ -32,7 +32,7 @@ const TEMPLATE_REPO_URL = process.env.TEMPLATE_REPO_URL ||
 const server = new Server(
   {
     name: "cursor-rules-generator",
-    version: "3.0.0",
+    version: "3.3.0",
   },
   {
     capabilities: {
@@ -428,6 +428,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           approach,
           projectPath,
           template: args.template as GenerationOptions["template"],
+          generateNestedRules: true, // Enable nested rules by default
         };
 
         const result = await generateCursorRules(analysisResult, options);

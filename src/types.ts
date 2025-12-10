@@ -22,6 +22,11 @@ export interface StructureAnalysis {
   hasBackend: boolean;
   hasFrontend: boolean;
   testLocation: "colocated" | "separate" | "mixed" | "none";
+  nestedRulesCandidates: {
+    path: string;
+    type: "frontend" | "backend" | "api" | "services" | "packages" | "apps";
+    description: string;
+  }[];
 }
 
 export interface CodePatternsAnalysis {
@@ -106,6 +111,7 @@ export interface GenerationOptions {
   hybridChoices?: Record<string, "current" | "best_practice">;
   template?: TemplateSelectionOptions;
   generateAgentsMd?: boolean; // Generate AGENTS.md as simple alternative to .cursor/rules/
+  generateNestedRules?: boolean; // Generate nested .cursor/rules/ for subdirectories
 }
 
 export interface GenerationResult {
@@ -115,6 +121,11 @@ export interface GenerationResult {
     agentsMd?: string;
     rulesDir: string;
     promptsDir: string;
+    nestedRules?: {
+      path: string;
+      type: string;
+      files: string[];
+    }[];
     files: {
       path: string;
       lines: number;

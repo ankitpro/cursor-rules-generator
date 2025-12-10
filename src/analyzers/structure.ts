@@ -13,6 +13,7 @@ export async function analyzeStructure(
     hasBackend: false,
     hasFrontend: false,
     testLocation: "none",
+    nestedRulesCandidates: [],
   };
 
   try {
@@ -129,6 +130,69 @@ export async function analyzeStructure(
       const srcPath = join(projectPath, "src");
       const hasColocatedTests = await hasTestFiles(srcPath);
       result.testLocation = hasColocatedTests ? "colocated" : "none";
+    }
+
+    // Detect nested rules candidates
+    // These are major subdirectories that should have their own .cursor/rules/
+    const nestedRulesConfig: Array<{
+      patterns: string[];
+      type: "frontend" | "backend" | "api" | "services" | "packages" | "apps";
+      description: string;
+    }> = [
+      {
+        patterns: ["frontend", "client", "web"],
+        type: "frontend",
+        description: "Frontend-specific rules for UI components and client-side code",
+      },
+      {
+        patterns: ["backend", "server"],
+        type: "backend",
+        description: "Backend-specific rules for server-side logic and APIs",
+      },
+      {
+        patterns: ["api"],
+        type: "api",
+        description: "API-specific rules for endpoint development and data handling",
+      },
+      {
+        patterns: ["services"],
+        type: "services",
+        description: "Service layer rules for business logic and data processing",
+      },
+      {
+        patterns: ["packages"],
+        type: "packages",
+        description: "Package-specific rules for monorepo packages",
+      },
+      {
+        patterns: ["apps"],
+        type: "apps",
+        description: "Application-specific rules for monorepo apps",
+      },
+    ];
+
+    for (const config of nestedRulesConfig) {
+      for (const pattern of config.patterns) {
+        if (directories.includes(pattern)) {
+          const candidatePath = join(projectPath, pattern);
+          // Check if it's actually a significant directory (has subdirectories)
+          try {
+            const subEntries = await readdir(candidatePath, { withFileTypes: true });
+            const hasSubdirs = subEntries.some(entry => entry.isDirectory() && !entry.name.startsWith('.'));
+            
+            if (hasSubdirs) {
+              result.nestedRulesCandidates.push({
+                path: pattern,
+                type: config.type,
+                description: config.description,
+              });
+            }
+          } catch {
+            // Skip if can't read directory
+          }
+          break; // Only add once per type
+        }
+      }
     }
   } catch (error) {
     console.error("Error analyzing structure:", error);

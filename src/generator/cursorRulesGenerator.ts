@@ -26,12 +26,13 @@ import {
   generateBuildEngineerRole,
 } from "./templates/systemPromptsTemplate.js";
 import { generateQuickReference } from "./templates/quickReferenceTemplate.js";
+import { generateNestedRule } from "./templates/nestedRulesTemplate.js";
 
 export async function generateCursorRules(
   analysis: AnalysisResult,
   options: GenerationOptions
 ): Promise<GenerationResult> {
-  const { projectPath, approach, template: templateOptions, generateAgentsMd: shouldGenerateAgentsMd } = options;
+  const { projectPath, approach, template: templateOptions, generateAgentsMd: shouldGenerateAgentsMd, generateNestedRules: shouldGenerateNestedRules } = options;
 
   // Load template if specified
   let template = null;
@@ -188,11 +189,40 @@ export async function generateCursorRules(
     filesGenerated.push(file.name);
   }
 
+  // Generate nested rules if requested and candidates exist
+  const nestedRulesInfo: Array<{ path: string; type: string; files: string[] }> = [];
+  
+  if (shouldGenerateNestedRules && analysis.structure.nestedRulesCandidates.length > 0) {
+    for (const candidate of analysis.structure.nestedRulesCandidates) {
+      const nestedRulesDir = join(projectPath, candidate.path, ".cursor", "rules");
+      
+      // Create nested .cursor/rules directory
+      if (!existsSync(nestedRulesDir)) {
+        await mkdir(nestedRulesDir, { recursive: true });
+      }
+
+      // Generate the nested rule file
+      const nestedRuleContent = generateNestedRule(candidate.type, analysis, approach);
+      const nestedRuleFile = join(nestedRulesDir, "main.mdc");
+      await writeFile(nestedRuleFile, nestedRuleContent, "utf-8");
+
+      const relativePath = `${candidate.path}/.cursor/rules/main.mdc`;
+      filesGenerated.push(relativePath);
+      
+      nestedRulesInfo.push({
+        path: candidate.path,
+        type: candidate.type,
+        files: ["main.mdc"],
+      });
+    }
+  }
+
   const structure = {
     main: ".cursor/rules/main.mdc",
     ...(shouldGenerateAgentsMd && { agentsMd: "AGENTS.md" }),
     rulesDir: ".cursor/rules",
     promptsDir: ".cursor/prompts",
+    ...(nestedRulesInfo.length > 0 && { nestedRules: nestedRulesInfo }),
     files: files.map((f) => ({
       path: f.name,
       lines: f.content.split("\n").length,

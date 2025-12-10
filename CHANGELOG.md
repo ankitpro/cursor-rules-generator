@@ -7,6 +7,62 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.3.0] - 2024-12-10
+
+### 🌳 Major Feature: Nested Rules Support
+
+This release adds support for **nested rules**, following the official Cursor documentation pattern where subdirectories can have their own `.cursor/rules/` directories.
+
+### Added
+
+- 🌳 **Nested Rules Generation**: Automatically generates subdirectory-specific rules for better organization
+- 📁 **Smart Directory Detection**: Identifies and creates rules for:
+  - `frontend/` - Frontend-specific rules (UI, components, state management)
+  - `backend/` - Backend-specific rules (API, database, authentication)
+  - `api/` - API-specific rules (endpoints, validation)
+  - `services/` - Service layer rules (business logic)
+  - `packages/` - Monorepo package rules
+  - `apps/` - Monorepo application rules
+- 🎯 **Context-Aware Rules**: Nested rules automatically apply when working with files in their directories
+- 📝 **Template Generators**: Six specialized template generators for different directory types
+- 🔧 **Configuration**: Enabled by default, can be controlled via `generateNestedRules` option
+
+### Enhanced
+
+- 📊 **Structure Analyzer**: Enhanced to detect nested rule candidates automatically
+- 🏗️ **Type System**: Updated types to support nested rules structure
+- 📚 **Documentation**: Updated README with nested rules examples and patterns
+
+### File Structure
+
+```
+your-project/
+├── frontend/
+│   └── .cursor/rules/
+│       └── main.mdc      # Frontend-specific rules
+├── backend/
+│   └── .cursor/rules/
+│       └── main.mdc      # Backend-specific rules
+└── .cursor/
+    └── rules/
+        ├── main.mdc      # Project-wide rules
+        └── ...
+```
+
+### Benefits
+
+- **Better Organization**: Scope rules to specific parts of your codebase
+- **Automatic Context**: Rules apply automatically when working in directories
+- **Cleaner Structure**: Follows official Cursor nested rules pattern
+- **Reduced Noise**: Only relevant rules apply in each context
+
+### References
+
+- Official Cursor Nested Rules Documentation: https://cursor.com/docs/context/rules
+- Example: "Organize rules by placing them in `.cursor/rules` directories throughout your project"
+
+---
+
 ## [3.2.0] - 2025-12-03
 
 ### 🗑️ Breaking Change: Removed Deprecated `.cursorrules` File
