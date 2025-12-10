@@ -136,7 +136,8 @@ export async function analyzeStructure(
     // These are major subdirectories that should have their own .cursor/rules/
     const nestedRulesConfig: Array<{
       patterns: string[];
-      type: "frontend" | "backend" | "api" | "services" | "packages" | "apps";
+      type: "frontend" | "backend" | "api" | "services" | "packages" | "apps" | 
+            "terraform" | "packer" | "kubernetes" | "ansible" | "docker" | "helm";
       description: string;
     }> = [
       {
@@ -168,6 +169,36 @@ export async function analyzeStructure(
         patterns: ["apps"],
         type: "apps",
         description: "Application-specific rules for monorepo apps",
+      },
+      {
+        patterns: ["terraform"],
+        type: "terraform",
+        description: "Terraform-specific rules for infrastructure as code",
+      },
+      {
+        patterns: ["packer"],
+        type: "packer",
+        description: "Packer-specific rules for image building automation",
+      },
+      {
+        patterns: ["kubernetes", "k8s"],
+        type: "kubernetes",
+        description: "Kubernetes-specific rules for container orchestration configs",
+      },
+      {
+        patterns: ["ansible"],
+        type: "ansible",
+        description: "Ansible-specific rules for configuration management and automation",
+      },
+      {
+        patterns: ["docker"],
+        type: "docker",
+        description: "Docker-specific rules for containerization",
+      },
+      {
+        patterns: ["helm"],
+        type: "helm",
+        description: "Helm-specific rules for Kubernetes package management",
       },
     ];
 

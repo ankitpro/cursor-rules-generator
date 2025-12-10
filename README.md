@@ -76,10 +76,23 @@ your-project/
 - `services/` - Business logic layer
 - `packages/` - Monorepo package development
 - `apps/` - Monorepo applications
+- `terraform/` - Infrastructure as code (IaC)
+- `packer/` - Image building automation
+- `kubernetes/` or `k8s/` - Container orchestration
+- `ansible/` - Configuration management
+- `docker/` - Containerization
+- `helm/` - Kubernetes package management
 
-Learn more: https://cursor.com/docs/context/rules
+Learn more: https://cursor.com/docs/context/rules | Community: https://cursor.directory/rules
 
-### 🆕 What's New in v3.3
+### 🆕 What's New in v3.4
+
+- 🚀 **Technology Folder Support**: Detects and creates nested rules for DevOps/infrastructure folders (terraform, packer, kubernetes, ansible, docker, helm)
+- 📖 **Community Resources**: All rules now reference [cursor.directory/rules](https://cursor.directory/rules) for examples
+- 🔧 **Comprehensive Templates**: Specialized guidelines for each technology with best practices
+- 🎯 **Smart Detection**: Recognizes both standard and shorthand directory names (kubernetes/k8s)
+
+### Previous Updates (v3.3)
 
 - 🌳 **Nested Rules Support**: Automatically generates subdirectory-specific rules for better organization
 - 📁 **Smart Directory Detection**: Identifies frontend/, backend/, api/, and other key directories
@@ -440,7 +453,7 @@ Scan my repository and generate comprehensive cursor rules
 
 ---
 
-**Version:** 3.3.0  
+**Version:** 3.4.0  
 **Last Updated:** December 10, 2024  
 **Status:** ✅ Production Ready
 

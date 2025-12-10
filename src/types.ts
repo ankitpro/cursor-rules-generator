@@ -24,7 +24,8 @@ export interface StructureAnalysis {
   testLocation: "colocated" | "separate" | "mixed" | "none";
   nestedRulesCandidates: {
     path: string;
-    type: "frontend" | "backend" | "api" | "services" | "packages" | "apps";
+    type: "frontend" | "backend" | "api" | "services" | "packages" | "apps" | 
+          "terraform" | "packer" | "kubernetes" | "ansible" | "docker" | "helm";
     description: string;
   }[];
 }

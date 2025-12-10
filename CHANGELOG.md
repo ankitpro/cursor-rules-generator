@@ -7,6 +7,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.4.0] - 2024-12-10
+
+### 🚀 Major Feature: Technology Folder Support
+
+This release extends nested rules support to include technology-based folders commonly found in infrastructure and DevOps projects.
+
+### Added
+
+- 🔧 **Technology Folder Detection**: Automatically detects and creates nested rules for:
+  - `terraform/` - Terraform IaC rules (variables, modules, state management)
+  - `packer/` - Packer image building rules (templates, provisioners)
+  - `kubernetes/` or `k8s/` - Kubernetes orchestration rules (deployments, services, best practices)
+  - `ansible/` - Ansible automation rules (playbooks, roles, inventory)
+  - `docker/` - Docker containerization rules (Dockerfile best practices, compose)
+  - `helm/` - Helm chart rules (templates, values, versioning)
+- 📖 **Community Resources**: All nested rules now include reference to [cursor.directory/rules](https://cursor.directory/rules) for community examples
+- 🏗️ **Comprehensive Templates**: Six new specialized template generators for DevOps/infrastructure technologies
+- 🎯 **Smart Detection**: Recognizes both standard (`kubernetes`) and shorthand (`k8s`) directory names
+
+### Enhanced
+
+- 📊 **Type System**: Extended to support all technology folder types
+- 🔍 **Structure Analyzer**: Now detects infrastructure and DevOps directories
+- 📚 **Documentation**: Each technology template includes best practices, security guidelines, and common patterns
+
+### Technology-Specific Guidelines Include
+
+- **Terraform**: Variable validation, module structure, state management, security
+- **Packer**: HCL2 templates, provisioners, image naming, build optimization
+- **Kubernetes**: Resource organization, security contexts, RBAC, high availability
+- **Ansible**: Playbook structure, idempotency, roles, vault for secrets
+- **Docker**: Multi-stage builds, security, layer caching, compose patterns
+- **Helm**: Chart structure, templating, values organization, versioning
+
+---
+
 ## [3.3.0] - 2024-12-10
 
 ### 🌳 Major Feature: Nested Rules Support
