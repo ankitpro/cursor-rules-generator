@@ -2,6 +2,9 @@
 
 **Automatically generate production-quality, modular cursor rules with `.mdc` format and AGENTS.md support**
 
+⭐ If this project helps you, please give it a star on GitHub.
+It motivates further development and improvements!
+
 [![Version](https://img.shields.io/badge/version-3.2.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
